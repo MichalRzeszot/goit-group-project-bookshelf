@@ -1,0 +1,191 @@
+/* Reset  */
+html,
+div,
+span,
+object,
+iframe,
+p,
+blockquote,
+pre,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+i,
+center,
+dl,
+dt,
+dd,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul,
+ol,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  overflow: auto;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  overflow: hidden;
+}
+
+/* Fonty
+ font-family: 'DM Sans', sans-serif;
+ font-family: '', sans-serif;
+ font-family: 'Seymour One', sans-serif; */
+
+body {
+  font-family: 'DM sans', sans-serif;
+  color: hsla(0, 0%, 7%, 1);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.container {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* outline: var(--outline-1); */
+}
+
+@media (min-width: 480px) {
+  .container {
+    width: 428px;
+    /* outline: var(--outline-1); */
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1158px;
+    /* outline: var(--outline-1); */
+  }
+}
+
+.white-bg {
+  background-color: var(--project-background);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-top: 72px;
+  width: 100%;
+  padding-bottom: 409px;
+}
+
+@media (min-width: 768px) {
+  .white-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 379px;
+    margin-top: 204px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .white-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 0px;
+    padding: 142px 0 228px 0;
+  }
+}
