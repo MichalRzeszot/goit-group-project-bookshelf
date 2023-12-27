@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style: none;
+}
+.list-section-item-list {
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  text-align: left;
+
+  color: hsla(0, 0%, 7%, 0.6);
+}
+.searched-books ul {
+  display: flex;
+  gap: 20px;
+}
+.list-section-item-list:hover {
+  color: hsla(251, 80%, 55%, 1);
+  text-transform: uppercase;
+}
