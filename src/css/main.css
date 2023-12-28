@@ -1,3 +1,5 @@
 /* Tutaj podłączamy wszystkie style css w taki sposób:
 
 @import url('ścieżka do pliku z twoimi stylami'); */
+@import url('./partials/book-catalog.css');
+@import url('./partials/shopping-list.css');
