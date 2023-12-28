@@ -1,8 +1,8 @@
-const placeOfList = document.querySelector('.list-section');
-const ulOfCategorys = document.querySelector('.all-category');
-const placeForBooks = document.querySelector('.searched-books');
+const placeForList = document.querySelector('.all-category');
+
 const categoris = 'https://books-backend.p.goit.global/books/category-list';
-const topBooks = 'https://books-backend.p.goit.global/books/top-books';
+let clickedBook;
+let clickedCategory;
 function creatingAList() {
   fetch(`${categoris}`)
     .then(res => res.json())
@@ -10,12 +10,17 @@ function creatingAList() {
       data.forEach(elem => {
         const listItem = document.createElement('li');
         listItem.classList.add('list-section-item-list');
-        listItem.insertAdjacentHTML('afterbegin', `<a href="#">${elem.list_name}</a>`);
-        placeOfList.appendChild(listItem);
+        listItem.insertAdjacentHTML('afterbegin', `${elem.list_name}`);
+        placeForList.append(listItem);
       });
     })
     .catch(error => {
-      console(`Fetching error during fetching category: ${error}`);
+      console.log(`Fetching error during fetching category: ${error}`);
     });
 }
 creatingAList();
+placeForList.addEventListener('click', ev => {
+  clickedBook = sessionStorage.setItem('clickedBook', ev.target.textContent);
+  clickedCategory = sessionStorage.getItem('clickedBook');
+  console.log(clickedCategory);
+});
