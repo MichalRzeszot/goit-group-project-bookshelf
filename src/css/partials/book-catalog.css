@@ -1,17 +1,22 @@
 a {
   color: inherit;
 }
-.all-category {
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.list-section {
+  overflow-y: scroll;
   margin-inline: 20px;
   margin-block: 40px;
   width: 307px;
   height: 228px;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  scrollbar-width: thin;
+  scrollbar-color: hsla(0, 0%, 88%, 1) hsla(0, 0%, 98%, 1);
 }
+.all-category {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .list-section-item-list {
   font-family: DM Sans;
   font-size: 18px;

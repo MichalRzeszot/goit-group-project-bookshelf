@@ -20,7 +20,7 @@ function creatingAList() {
 }
 creatingAList();
 placeForList.addEventListener('click', ev => {
-  clickedBook = sessionStorage.setItem('clickedBook', ev.target.textContent);
-  clickedCategory = sessionStorage.getItem('clickedBook');
-  console.log(clickedCategory);
+  clickedBook = ev.target.textContent;
+
+  console.log(clickedBook);
 });
