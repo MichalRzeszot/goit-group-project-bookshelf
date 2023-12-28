@@ -154,3 +154,6 @@
     letter-spacing: -0.18px;
   }
 }
+.hidden {
+  display: none;
+}
