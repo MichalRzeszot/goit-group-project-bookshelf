@@ -1,0 +1,36 @@
+.header-frame {
+  width: 375px;
+  height: 64px;
+  border: 1.5px solid var(--black);
+  border-radius: 0px 0px 8px 8px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo {
+  width: 109px;
+  height: 28px;
+  margin: auto 0px auto 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-part {
+  width: 82px;
+  height: 28px;
+  margin-right: 15px;
+  text-align: center;
+  margin: auto 20px auto 0px;
+  gap: 14px;
+  display: flex;
+}
+.hamburger-button {
+  border: none;
+  background-color: var(--project-background);
+  stroke: #111;
+  margin-left: 0px;
+}
+.hamburger-button:hover svg,
+.hamburger-button:focus svg {
+  stroke: var(--violet);
+}
