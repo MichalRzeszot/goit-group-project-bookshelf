@@ -1,6 +1,6 @@
 .book-modal {
   position: fixed;
-  background: var(--white);
+  background: rgba(17, 17, 17, 0.4);
 
   top: 0;
   left: 0;
@@ -15,10 +15,13 @@
   justify-content: center;
   align-items: center;
 
-  padding: 40px 24px 40px 24px;
   overflow-y: auto;
 }
 .book-modal-container {
+  padding: 40px 24px 40px 24px;
+  position: relative;
+
+  background-color: var(--white);
   max-width: 335px;
   display: flex;
   flex-direction: column;
@@ -113,7 +116,7 @@
   height: 24px;
 }
 
-@media screen and (min-width: 579px) {
+@media screen and (min-width: 768px) {
   .book-modal {
     padding: 40px;
   }
