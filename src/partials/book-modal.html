@@ -1,5 +1,5 @@
 <div class="book-modal-container">
-  <div>
+  <div class="book-modal-wrapper">
     <img
       class="book-modal-image"
       src="https://picsum.photos/seed/randomimg/287/408"
@@ -8,29 +8,31 @@
       height="408"
     />
 
-    <h2>Book title</h2>
-    <h3>Book Author</h3>
-    <p>
+    <div class="book-modal-title-container">
+      <h2 class="book-modal-title">Book title</h2>
+      <h3 class="book-modal-author">Book Author</h3>
+    </div>
+    <p class="book-modal-description">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus ducimus culpa deleniti!
       Voluptatum odit repellat, cumque, sed exercitationem, reiciendis dolores aspernatur labore ab
       perspiciatis nisi. Earum, inventore accusantium! Consequuntur, dolorem.
     </p>
 
-    <div>
-      <svg>
-        <use href="/src/images/icons.svg#icon-amazon"></use>
-      </svg>
-      <svg>
-        <use href="/src/images/icons.svg#icon-book-icon"></use>
-      </svg>
+    <div class="book-modal-icon-contatiner">
+      <!-- placeholder url -->
+      <a href="https://www.amazon.com/">
+        <svg width="62" height="19">
+          <use style="fill: gray" href="/src/images/icons.svg#icon-amazon"></use></svg
+      ></a>
+      <a href="">
+        <svg width="33" height="32">
+          <use style="fill: gray" href="/src/images/icons.svg#icon-book-icon"></use>
+        </svg>
+      </a>
     </div>
 
-    <button>Add to Shoping List</button>
+    <button class="book-modal-button">Add to Shoping List</button>
 
-    <button>
-      <svg>
-        <use href="/src/images/icons.svg#icon-close-button"></use>
-      </svg>
-    </button>
+    <button class="close-button">X</button>
   </div>
 </div>
