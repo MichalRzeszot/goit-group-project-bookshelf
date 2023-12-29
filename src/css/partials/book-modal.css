@@ -155,5 +155,9 @@
   }
 }
 .hidden {
-  display: none;
+  /* display: none; */
+}
+
+.book-amazon-icon {
+  fill: var(--gray);
 }
