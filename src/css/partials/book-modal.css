@@ -157,9 +157,13 @@
     line-height: 24px;
     letter-spacing: -0.18px;
   }
+  .book-modal-close-button {
+    width: 28px;
+    height: 28px;
+  }
 }
 .hidden {
-  /* display: none; */
+  display: none;
 }
 
 .book-amazon-icon {
