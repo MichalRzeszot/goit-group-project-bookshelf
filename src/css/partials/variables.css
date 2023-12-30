@@ -1,6 +1,7 @@
 :root {
   --black: #111111;
   --black1: #202024;
+  --black1alfa: hsla(0, 0%, 7%, 0.6);
   --violet: #4f2ee8;
   --yellow: #eac645;
   --white: #ffffff;
