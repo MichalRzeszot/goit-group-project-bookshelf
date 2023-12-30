@@ -1,3 +1,4 @@
+@import url(./variables.css);
 a {
   color: inherit;
 }
@@ -5,6 +6,7 @@ a {
   overflow: scroll;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 24px;
   margin-inline: 20px;
   margin-block: 40px;
@@ -14,19 +16,18 @@ a {
 }
 .list-section-item-list {
   font-family: DM Sans;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.02em;
-  text-align: left;
-  cursor: pointer;
-  color: hsla(0, 0%, 7%, 0.6);
+  color: var(--black1alfa);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
 }
 .searched-books ul {
   display: flex;
   gap: 0px;
 }
 .list-section-item-list:hover {
-  color: hsla(251, 80%, 55%, 1);
+  color: var(--violet);
+  font-weight: 700;
   text-transform: uppercase;
 }
