@@ -2,6 +2,7 @@
 a {
   color: inherit;
 }
+
 .all-category {
   overflow: scroll;
   display: flex;
@@ -12,7 +13,7 @@ a {
   margin-block: 40px;
   width: 307px;
   height: 228px;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 .list-section-item-list {
   font-family: DM Sans;
@@ -22,12 +23,28 @@ a {
   line-height: 18px;
   letter-spacing: -0.32px;
 }
-.searched-books ul {
+/* .searched-books ul {
   display: flex;
   gap: 0px;
-}
+} */
 .list-section-item-list:hover {
   color: var(--violet);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .all-category {
+    gap: 32px;
+    width: 309px;
+    height: 472px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .all-category {
+    gap: 32px;
+    width: 328px;
+    height: 472px;
+  }
 }
