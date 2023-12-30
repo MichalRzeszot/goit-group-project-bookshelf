@@ -22,6 +22,8 @@
   position: relative;
 
   background-color: var(--white);
+  border: 2px solid var(--black);
+
   max-width: 335px;
   display: flex;
   flex-direction: column;
