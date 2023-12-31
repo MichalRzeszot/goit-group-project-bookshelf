@@ -13,14 +13,49 @@
       <label for="switch" class="h-switch">Toggle</label>
 
       <button
-        class="hamburger-button js-open-menu"
+        class="hamburger-button js-toggle-menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <svg width="28" height="28" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          class="icon-align-left"
+          width="28"
+          height="28"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <use href="./images/icons.svg#icon-align-left"></use>
         </svg>
+        <svg
+          class="icon-x-item"
+          width="28px"
+          height="28px"
+          viewBox="0 0 28 28"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use href="./images/icons.svg#x-item"></use>
+        </svg>
       </button>
+    </div>
+  </div>
+
+  <div class="menu-container js-menu-container bg-books" id="mobile-menu" data-modal>
+    <div class="menu-content">
+      <div class="home-item">
+        <a class="button-home" href="./index.html"><span class="home-text">HOME</span></a>
+      </div>
+      <div class="shopping-item">
+        <span class="shopping-text">SHOPPING LIST</span>
+        <svg
+          class="bag-item"
+          width="20px"
+          height="20px"
+          viewBox="0 0 28 28"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use href="./images/icons.svg#bag"></use>
+        </svg>
+      </div>
     </div>
   </div>
 </body>

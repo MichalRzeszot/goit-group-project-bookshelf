@@ -32,7 +32,6 @@
   toggleMenuBtn.addEventListener('click', toggleMenu);
 
   const showShoppingList = () => {
-    //dodanie shopping list
     toggleMenu();
     console.log('showShoppingList...');
   };
