@@ -138,6 +138,9 @@ input#switch:checked + .h-switch:after {
   background-blend-mode: overlay;
   background-repeat: no-repeat;
 }
+.bg-form {
+  background: #4f2ee8;
+}
 .bg-white {
   background-color: var(--white);
 }
@@ -205,4 +208,55 @@ input#switch:checked + .h-switch:after {
 }
 .bag-item {
   stroke: var(--white);
+}
+/*sing up*/
+.sign-up-btn {
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: #4f2ee8;
+  width: 184px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 8px 5px 14px 5px;
+  margin-top: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.sign-text {
+  color: var(--white);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+.arrow-item {
+  margin-left: 90px;
+}
+
+/*sing-up-form*/
+.sign-up-form {
+}
+.sign-up-form-btn {
+  border-radius: 60px;
+  background: #f6f6f6;
+  display: flex;
+  padding: 16px 116px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+.sign-form-text {
+  color: #202024;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.16px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
