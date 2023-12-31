@@ -16,7 +16,26 @@
   align-items: center;
 
   overflow-y: auto;
+  transition: opacity 0.3s ease-in-out;
 }
+
+.book-modal.closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.book-modal.closed .book-modal-container {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
 .book-modal-container {
   padding: 40px 24px 40px 24px;
   position: relative;
@@ -74,6 +93,8 @@
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.56px;
+
+  min-height: 90px;
 }
 .book-modal-icon-contatiner {
   display: flex;
@@ -83,10 +104,26 @@
 
   margin-top: 20.5px;
 }
+.book-amazon-url:hover {
+  transition: filter 0.3s ease-in-out;
+}
+.book-amazon-url:hover {
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+
+.book-link-icon {
+  transition: filter 0.3s ease-in-out;
+}
+.book-link-icon:hover {
+  mix-blend-mode: luminosity;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
 .book-modal-button {
   max-width: 230px;
   align-self: center;
   padding: 14px 28px 14px 28px;
+  margin-top: 44px;
 
   background-color: var(--white);
   border: 2px solid var(--violet);
@@ -99,7 +136,15 @@
   letter-spacing: -0.14px;
   text-transform: uppercase;
 
-  margin-top: 44px;
+  cursor: pointer;
+
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-modal-button:hover,
+.book-modal-button:focus {
+  background-color: var(--violet);
+  color: var(--white);
 }
 .book-modal-close-button {
   position: absolute;
@@ -118,6 +163,11 @@
   background-color: transparent;
   height: 20px;
   stroke: var(--black);
+
+  transition: stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.book-modal-close-button:hover {
+  stroke: var(--violet);
 }
 
 @media screen and (min-width: 768px) {
