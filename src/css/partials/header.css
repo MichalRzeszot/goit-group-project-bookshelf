@@ -1,4 +1,5 @@
 .header-frame {
+  background-color: var(--project-background);
   width: 375px;
   height: 64px;
   border: 1.5px solid var(--black);
@@ -7,6 +8,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.header-frame.menu-opened {
+  background-color: var(--white);
 }
 .logo {
   width: 109px;
@@ -81,4 +89,174 @@ input#switch:checked + .h-switch:after {
 .hamburger-button:hover svg,
 .hamburger-button:focus svg {
   stroke: var(--violet);
+}
+
+.close-btn {
+  background-color: var(--white);
+  border: none;
+  stroke: #111;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.close-btn:hover,
+.close-btn:focus {
+  stroke: var(--violet);
+}
+
+.hamburger-button .icon-align-left {
+  display: block;
+}
+.hamburger-button .icon-x-item {
+  display: none;
+}
+.close-btn .icon-align-left {
+  display: none;
+}
+.close-btn .icon-x-item {
+  display: block;
+}
+
+/*menu-mobile*/
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transition: transform 250ms ease-in-out;
+  visibility: hidden;
+  transition: 300ms;
+  padding-top: 64px;
+}
+.bg-books {
+  background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%),
+    url('./../../images/booksy.png');
+  background-position: center bottom;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+}
+.bg-form {
+  background: #4f2ee8;
+}
+.bg-white {
+  background-color: var(--white);
+}
+.bg-books .sl-container {
+  display: none;
+}
+.bg-white .sl-container {
+  display: block;
+}
+.bg-books .menu-content {
+  display: block;
+}
+.bg-white .menu-content {
+  display: none;
+}
+
+.menu-container.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex: 1;
+}
+
+.home-item {
+  display: flex;
+  text-align: center;
+}
+.button-home {
+  border-radius: 36px;
+  background: var(--yellow);
+  display: flex;
+  padding: 12px 16px;
+  align-items: flex-start;
+  margin: 183px 174px auto 129px;
+  width: 72px;
+  height: 42px;
+  border: none;
+}
+.home-text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+.shopping-item {
+  width: 120px;
+  height: 20px;
+  margin: 17px auto auto 129px;
+  vertical-align: middle;
+}
+.shopping-text {
+  color: var(--white);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.56px;
+  cursor: pointer;
+}
+.bag-item {
+  stroke: var(--white);
+}
+/*sing up*/
+.sign-up-btn {
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: #4f2ee8;
+  width: 184px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 8px 5px 14px 5px;
+  margin-top: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.sign-text {
+  color: var(--white);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+.arrow-item {
+  margin-left: 90px;
+}
+
+/*sing-up-form*/
+.sign-up-form {
+}
+.sign-up-form-btn {
+  border-radius: 60px;
+  background: #f6f6f6;
+  display: flex;
+  padding: 16px 116px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+.sign-form-text {
+  color: #202024;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.16px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
 }
