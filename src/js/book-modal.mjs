@@ -29,8 +29,6 @@ const fetchSpecificBook = async id => {
 
   const { author, title, description, book_image, amazon_product_url } = data;
 
-  console.log(data);
-
   bookTitle.textContent = title;
   bookAuthor.textContent = author;
   bookDesc.textContent = description;
