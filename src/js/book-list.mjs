@@ -8,7 +8,6 @@ bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 async function booksFetch(category = 'top-books') {
   if (category === 'All Categories') {
     category = 'top-books';
-    console.log('wszystkie kategorie');
   }
   const baseUrl = 'https://books-backend.p.goit.global/books/';
   if (category != 'top-books') {
@@ -72,17 +71,15 @@ function categoryBooksRender(books) {
 
 //funkcja przekazująca kategorię ksiązek z buttona do funkcji pobierającej listę książek
 function btnClickHandler() {
-  category = `${this.id}`;
-  headerRender(category);
-  booksFetch(category);
+  headerRender(this.id);
+  booksFetch(this.id);
   scroll(0, 0);
 }
 
 //funkcja przekazująca kategorię ksiązek z menu do funkcji pobierającej listę książek
 placeForList.addEventListener('click', ev => {
-  category = `${ev.target.textContent}`;
-  headerRender(category);
-  booksFetch(category);
+  headerRender(ev.target.textContent);
+  booksFetch(ev.target.textContent);
 });
 
 //funkcja renderująca tytuł kategorii
