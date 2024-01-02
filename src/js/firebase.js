@@ -1,11 +1,6 @@
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAKxWacqha5AI2uXFjcLX9Oojf7c_Am5bA',
   authDomain: 'bookshelf-project-go-it.firebaseapp.com',
@@ -18,10 +13,41 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth();
 
 const signInForm = document.querySelector('#sign-in-form');
-const signedInContent = document.querySelector('#signed-in-content'); // treść która będzie widoczna bo zalogowaniu użytkownika
+const signedInContent = document.querySelector('#signed-in-content');
+const signUpForm = document.querySelector('#sign-up-form');
+const signedUpContent = document.querySelector('#signed-up-content');
+const showSignUpLinkModalTop = document.querySelector('#show-sign-up-modal-top');
+const showSignInLinkModalTop = document.querySelector('#show-sign-in-modal-top');
+const showSignUpLinkModalBottom = document.querySelector('#show-sign-up-modal-bottom');
+const showSignInLinkModalBottom = document.querySelector('#show-sign-in-modal-bottom');
+
+// Show sign-up form by default
+signUpForm.style.display = 'block';
+signInForm.style.display = 'none';
+
+// Event listeners for showing the forms
+showSignUpLinkModalTop.addEventListener('click', e => {
+  e.preventDefault();
+  showSignUpForm();
+});
+
+showSignInLinkModalTop.addEventListener('click', e => {
+  e.preventDefault();
+  showSignInForm();
+});
+
+showSignUpLinkModalBottom.addEventListener('click', e => {
+  e.preventDefault();
+  showSignUpForm();
+});
+
+showSignInLinkModalBottom.addEventListener('click', e => {
+  e.preventDefault();
+  showSignInForm();
+});
 
 const showSignedInContent = () => {
   signInForm.style.display = 'none';
@@ -31,59 +57,79 @@ const showSignedInContent = () => {
 const showSignInForm = () => {
   signInForm.style.display = 'block';
   signedInContent.style.display = 'none';
+  signUpForm.style.display = 'none';
 };
 
-const handleAuthChanged = user => {
-  if (user) {
-    showSignedInContent();
-  } else {
-    showSignInForm();
-  }
+const showSignedUpContent = () => {
+  signUpForm.style.display = 'none';
+  signedUpContent.style.display = 'block';
 };
 
-// logika odpowiedzialna za logowania i rejestracje //
-
-const showError = error => {
-  const errorBox = document.querySelector('error-box');
-
-  errorBox.innerHTML = error;
-  errorBox.style.display = 'block';
-
-  setTimeout(() => {
-    errorBox.style.display = 'none';
-  }, 5000);
+const showSignUpForm = () => {
+  signUpForm.style.display = 'block';
+  signedUpContent.style.display = 'none';
+  signInForm.style.display = 'none';
 };
 
-const getUserEmailAndPassword = () => ({
-  email: document.querySelector('#email').value,
-  password: document.querySelector('#password').value,
+signInForm.addEventListener('submit', e => {
+  e.preventDefault(); // Prevent form submission
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      // User signed in successfully
+      const user = userCredential.user;
+      // Handle the signed-in user, update UI, etc.
+      showSignedInContent();
+    })
+    .catch(signInError => {
+      const signInErrorCode = signInError.code;
+      const signInErrorMessage = signInError.message;
+
+      let form = document.querySelector('#sign-in-form');
+      if (signInErrorCode === 'auth/invalid-credential') {
+        form.innerHTML = `<h1>Error: Invalid password</h1>`;
+      } else if (signInErrorCode === 'auth/user-not-found') {
+        form.innerHTML = `<h1>Error: User not registered</h1>`;
+      } else {
+        form.innerHTML = `<h1>Error: ${signInErrorCode} - ${signInErrorMessage}</h1>`;
+      }
+      console.error('Sign-in error:', signInErrorCode, signInErrorMessage);
+      // Display error message or handle as needed for sign-in
+    });
 });
 
-const createUserAccount = () => {
-  const { email, password } = getUserEmailAndPassword();
+signUpForm.addEventListener('submit', e => {
+  e.preventDefault(); // Prevent form submission
+  const email = document.querySelector('#email-signup').value;
+  const password = document.querySelector('#password-signup').value;
 
-  firebase.auth().createUserWithEmailAndPassword(email, password);
-};
+  // If user doesn't exist, try creating a new user
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(newAccountCredential => {
+      // New account created successfully
+      const newUser = newAccountCredential.user;
+      // Handle the new user, maybe update UI
+      showSignedUpContent();
+      console.log('Użytkownik został zarejestrowany');
+    })
+    .catch(signUpError => {
+      // Handle sign-up errors separately
+      const signUpErrorCode = signUpError.code;
+      const signUpErrorMessage = signUpError.message;
 
-const handleErrorSignIn = error => {
-  switch (error.code) {
-    case 'auth/user-not-found':
-      createUserAccount();
-      break;
-    case 'auth/wrong-password':
-      showError('Podałeś nieprawidłowe hasło');
-      break;
-    default:
-      showError('Coś poszło nie tak');
-  }
-};
+      let form = document.querySelector('#sign-up-form');
 
-const handleSubmitSignInForm = event => {
-  const { email, password } = getUserEmailAndPassword();
+      if (signUpErrorCode === 'auth/email-already-in-use') {
+        form.innerHTML = `<h1>Użytkownik jest już zarejestrowany. Zaloguj się!</h1>`;
+      } else if (signUpErrorCode === 'auth/weak-password') {
+        form.innerHTML = `<h1>Hasło musi zawierać co najmniej 6 znaków!</h1>`;
+      } else {
+        form.innerHTML = `<h1>Error: ${signUpErrorCode} - ${signUpErrorMessage}</h1>`;
+      }
 
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(handleErrorSignIn);
-  event.preventDefault();
-};
-
-firebase.auth().onAuthStateChanged(handleAuthChanged); // moduł autoryzacji wraz z metodami autoryzacji // onAuthStateChanged to nasłuchiwanie czy ktoś się zalogował czy też nie
-signInForm.addEventListener('submit', handleSubmitSignInForm);
+      console.error('Sign-up error:', signUpErrorCode, signUpErrorMessage);
+      // Display error message or handle as needed for sign-up
+    });
+});

@@ -1,85 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Firebase App</title>
-  </head>
-  <body>
-    <form id="sign-in-form">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-      <label for="password">Hasło</label>
-      <input type="password" id="password" name="password" required />
-      <input type="submit" value="Zaloguj" />
-    </form>
-    <div id="signed-in-content">
-      <h1>Witaj</h1>
-    </div>
-    <script src="/src/js/firebase.js"></script>
-  </body>
-</html>
+<!-- WORKING CODE FOR SIGN IN AND SIGN UP BELOW -->
 
-<!-- Ponizej kod pierwotny -->
+<!-- /// MODAL BELOW ///  -->
 
-<!-- <div class="button"> -->
-<!-- <button type="button" class="button__item" data-modal-open3>Order flowers</button> -->
-<!-- </div>
-<div class="backdrop is-hidden" data-modal3>
+<div class="button">
+  <button type="button" class="button__item" data-modal-open>MODAL DO REJESTRACJI/LOGOWANIA</button>
+</div>
+<div class="backdrop is-hidden" data-modal>
   <div class="modal">
-    <button type="button" class="modal__close" data-modal-close3>
-      <svg class="modal__close--item"> -->
-<!-- <use href="/src/images/icons.svg#icon-close"></use> -->
-<!-- </svg>
-    </button>
+    <button type="button" class="modal__close" data-modal-close>X</button>
 
     <div class="modal__wrapper">
-      <form> -->
-<!-- <label for="user-name" class="modal__wrapper--input">
-          <p class="modal__text--item">Name</p>
-        </label> -->
-<!-- <div class="modal__box">
-          <input
-            type="text"
-            name="name"
-            id="user-name"
-            minlength="2"
-            required
-            placeholder="NAME"
-            class="modal__box--input"
-          />
-        </div> -->
+      <div class="modal__container">
+        <!-- /// MODAL ABOVE ///  -->
 
-<!-- <label for="email" class="modal__wrapper--input">
-          <p class="modal__text--item">E-mail</p>
-        </label> -->
-<!-- <div class="modal__box">
-          <input
-            type="email"
-            name="email"
-            minlength="3"
-            required
-            id="email"
-            placeholder="E-MAIL"
-            class="modal__box--input"
-          />
+        <!-- WORKING CODE FOR SIGN UP BELOW -->
+
+        <form id="sign-up-form" class="modal__container--text">
+          <div class="modal__box">
+            <input
+              type="name"
+              id="name-signup"
+              name="name"
+              minlength="3"
+              required
+              placeholder="NAME"
+              class="modal__box--input"
+            />
+          </div>
+          <div class="modal__box">
+            <input
+              type="email"
+              id="email-signup"
+              name="email"
+              minlength="3"
+              required
+              placeholder="EMAIL"
+              class="modal__box--input"
+            />
+          </div>
+
+          <div class="modal__box">
+            <input
+              type="password"
+              id="password-signup"
+              name="password"
+              required
+              minlength="6"
+              placeholder="PASSWORD"
+              class="modal__box--input"
+            />
+          </div>
+          <div>
+            <input type="submit" value="SIGN UP" class="modal__send" />
+          </div>
+            <div class="modal__navigation">
+            <a href="#" id="show-sign-up-modal-top">SIGN UP</a>
+            <a href="#" id="show-sign-in-modal-top">SIGN IN</a>
+          </div>
+        </form>
+
+        <div id="signed-up-content" style="display: none">
+          <h1>Użytkownik został zarejestrowany</h1>
         </div>
 
-        <div class="modal__box">
-          <input
-            type="email"
-            name="email"
-            minlength="3"
-            required
-            id="email"
-            placeholder="PASSWORD"
-            class="modal__box--input"
-          />
         </div>
 
-        <div>
-          <button type="submit" class="modal__send">SIGN UP</button>
+       <!-- WORKING CODE FOR SIGN UP ABOVE -->
+
+        <!-- WORKING CODE FOR SIGN IN BELOW -->
+
+        <form id="sign-in-form" class="modal__container--text">
+          <div class="modal__box">
+            <input
+              type="name"
+              id="name"
+              name="name"
+              minlength="3"
+              required
+              placeholder="NAME"
+              class="modal__box--input"
+            />
+          </div>
+          <div class="modal__box">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              minlength="3"
+              required
+              placeholder="EMAIL"
+              class="modal__box--input"
+            />
+          </div>
+
+          <div class="modal__box">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="6"
+              placeholder="PASSWORD"
+              class="modal__box--input"
+            />
+          </div>
+          <div>
+            <input type="submit" value="SIGN IN" class="modal__send" />
+          </div>
+          <div class="modal__navigation">
+            <a href="#" id="show-sign-up-modal-bottom">SIGN UP</a>
+            <a href="#" id="show-sign-in-modal-bottom">SIGN IN</a>
+          </div>
+        </form>
+
+        <div id="signed-in-content" style="display: none">
+          <h1>Użytkownik został zalogowany</h1>
         </div>
-      </form>
+      </div>
     </div>
+
+    <!-- WORKING CODE FOR SIGN IN ABOVE -->
   </div>
-</div> -->
+</div>
+
+<!-- WORKING CODE FOR SIGN IN AND SIGN UP ABOVE -->
