@@ -83,11 +83,11 @@ placeForList.addEventListener('click', ev => {
 });
 
 //funkcja renderująca tytuł kategorii
-function headerRender(category) {
-  if (category === 'All Categories') {
-    category = 'Best Sellers Books';
+function headerRender(categoryName) {
+  if (categoryName === 'All Categories') {
+    categoryName = 'Best Sellers Books';
   }
-  const headerArr = category.split(' ');
+  const headerArr = categoryName.split(' ');
   const lastWord = headerArr.pop();
   const header = headerArr.join(' ');
   bookListHeader.innerHTML = `${header} <span class="bl-span">${lastWord} </span>`;
