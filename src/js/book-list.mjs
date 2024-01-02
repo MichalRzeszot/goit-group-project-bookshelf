@@ -5,7 +5,8 @@ const bookList = document.querySelector('.bl-container');
 bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 
 //funkcja pobierająca liste książek
-async function booksFetch(category = 'top-books') {
+async function booksFetch(defCategory = 'top-books') {
+  let category = defCategory;
   if (category === 'All Categories') {
     category = 'top-books';
   }
