@@ -18,6 +18,12 @@ const closeModal = () => {
   bookModal.classList.toggle('hidden');
 };
 
+document.addEventListener('keydown', e => {
+  if (e.keyCode === 27) {
+    closeModal();
+  }
+});
+
 bookModalCloseBtn.addEventListener('click', closeModal);
 bookListContainer.addEventListener('click', handleBookClick);
 
