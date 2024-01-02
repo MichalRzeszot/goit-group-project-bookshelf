@@ -5,21 +5,25 @@ const bookList = document.querySelector('.bl-container');
 bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 
 //funkcja pobierająca liste książek
-async function booksFetch(defCategory = 'top-books') {
-  let category = defCategory;
+async function booksFetch(category = 'top-books') {
+  let categoryId = category;
   if (category === 'All Categories') {
-    category = 'top-books';
+    categoryId = 'top-books';
   }
   const baseUrl = 'https://books-backend.p.goit.global/books/';
-  if (category != 'top-books') {
-    category = `category?category=${category}`;
+  if (category !== 'top-books') {
+    categoryId = `category?category=${category}`;
   }
-  const response = await fetch(baseUrl + category);
-  const books = await response.json();
-  if (category === 'top-books') {
-    allBooksRender(books);
-  } else {
-    categoryBooksRender(books);
+  try {
+    const response = await fetch(baseUrl + categoryId);
+    const books = await response.json();
+    if (category === 'top-books') {
+      allBooksRender(books);
+    } else {
+      categoryBooksRender(books);
+    }
+  } catch (error) {
+    console.error('Error fetching books:', error);
   }
 }
 
