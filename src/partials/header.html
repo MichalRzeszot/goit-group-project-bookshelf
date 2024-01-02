@@ -1,0 +1,83 @@
+<body>
+  <div class="header-frame">
+    <div class="logo">
+      <svg width="24" height="24">
+        <use href="./images/icons.svg#icon-logo"></use>
+      </svg>
+      <svg width="77" height="24">
+        <use href="./images/icons.svg#icon-Bookshelf"></use>
+      </svg>
+    </div>
+    <div class="nav-part">
+      <input type="checkbox" id="switch" />
+      <label for="switch" class="h-switch">Toggle</label>
+
+      <button
+        class="hamburger-button js-toggle-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg
+          class="icon-align-left"
+          width="28"
+          height="28"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use href="./images/icons.svg#icon-align-left"></use>
+        </svg>
+        <svg
+          class="icon-x-item"
+          width="28px"
+          height="28px"
+          viewBox="0 0 28 28"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use href="./images/icons.svg#x-item"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="menu-container js-menu-container bg-books" id="mobile-menu" data-modal>
+    <div class="menu-content">
+      <div class="sign-up-content">
+        <button class="sign-up-btn">
+          <span class="sign-text">Sign up</span>
+          <svg
+            class="arrow-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#arrow"></use>
+          </svg>
+        </button>
+        <!-- formularz logowania (ukryty) -->
+        <div class="sign-up-form hidden">
+          <button class="sign-up-form-btn">
+            <span class="sign-form-text">Sign up</span>
+          </button>
+        </div>
+      </div>
+      <div class="user-menu hidden">
+        <div class="home-item">
+          <a class="button-home" href="./index.html"><span class="home-text">HOME</span></a>
+        </div>
+        <div class="shopping-item">
+          <span class="shopping-text">SHOPPING LIST</span>
+          <svg
+            class="bag-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#bag"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
