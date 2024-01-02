@@ -1,5 +1,6 @@
 const bookListHeader = document.querySelector('.bl-header');
-// const bookList = document.querySelector('.bl-container');
+const blPlaceForList = document.querySelector('.all-category');
+const bookList = document.querySelector('.bl-container');
 
 bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 
@@ -81,7 +82,7 @@ function btnClickHandler() {
 }
 
 //funkcja przekazująca kategorię ksiązek z menu do funkcji pobierającej listę książek
-placeForList.addEventListener('click', ev => {
+blPlaceForList.addEventListener('click', ev => {
   headerRender(ev.target.textContent);
   booksFetch(ev.target.textContent);
 });
