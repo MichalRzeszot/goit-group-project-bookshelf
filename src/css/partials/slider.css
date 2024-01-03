@@ -2,11 +2,19 @@
 }
 
 .slider-container {
-  background-color: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+  background: linear-gradient(to bottom, #4f2ee8 18%.03, #bdb2f1);
   width: 335px;
   height: 460px;
   box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
+  padding: 28px 40px;
+}
+
+.slider-heading-div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 44px;
 }
 
 .slider-heading {
@@ -16,4 +24,25 @@
   font-weight: 700;
   line-height: 24px;
   letter-spacing: -0.88px;
+}
+
+#charities {
+  color: #fff;
+  font-family: DM Sans;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+
+.charity:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+.slider-button {
+  margin: 20px 112px 20px 111px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: #fff;
+  width: 32px;
+  height: 32px;
 }
