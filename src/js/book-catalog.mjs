@@ -25,20 +25,16 @@ placeForList.addEventListener('click', ev => {
   console.log(clickedCategory);
 });
 
-window.addEventListener('scroll', () => {
-  scrollhandler;
-});
+window.addEventListener('scroll', scrollhandler);
 function scrollhandler() {
   let yPositionvalue = window.pageYOffset;
-  if (yPositionvalue > 100) {
+  if (yPositionvalue > 1000 && window.screen.availWidth > 768) {
     toUpBtn.style.display = 'block';
   } else {
     toUpBtn.style.display = 'none';
   }
 }
-toUpBtn.addEventListener('click', () => {
-  toUpBtnClickHandler;
-});
+toUpBtn.addEventListener('click', toUpBtnClickHandler);
 function toUpBtnClickHandler() {
   window.scrollBy(0, -1 * window.pageYOffset);
 }
