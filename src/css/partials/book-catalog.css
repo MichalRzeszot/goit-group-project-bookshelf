@@ -32,6 +32,7 @@ a {
   font-weight: 700;
   text-transform: uppercase;
 }
+/* Sekcja przycisku do przewijania w góre strony */
 #to-up-btn {
   color: hsla(251, 80%, 55%, 0.3);
   width: 150px;
@@ -43,6 +44,7 @@ a {
   cursor: pointer;
   display: none;
 }
+/* Sekcja media query */
 @media (min-width: 768px) {
   .all-category {
     gap: 32px;

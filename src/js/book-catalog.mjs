@@ -24,7 +24,7 @@ placeForList.addEventListener('click', ev => {
   clickedCategory = sessionStorage.getItem('clickedBook');
   console.log(clickedCategory);
 });
-
+// Sekcja przycisku do przewijania w góre strony
 window.addEventListener('scroll', scrollhandler);
 function scrollhandler() {
   let yPositionvalue = window.pageYOffset;
