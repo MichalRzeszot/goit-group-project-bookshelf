@@ -33,13 +33,13 @@ a {
   text-transform: uppercase;
 }
 #to-up-btn {
-  color: hsl(120, 40, 30);
+  color: hsla(251, 80%, 55%, 0.3);
   width: 150px;
   height: 30px;
   padding: 10px;
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 60px;
+  right: 20px;
   cursor: pointer;
   display: none;
 }
