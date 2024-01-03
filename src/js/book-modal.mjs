@@ -7,6 +7,7 @@ const bookTitle = document.querySelector('#book-title');
 const bookAuthor = document.querySelector('#book-author');
 const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
+const bookModalBtn = document.querySelector('#book-modal-btn');
 
 const handleBookClick = async e => {
   try {
@@ -48,3 +49,27 @@ const fetchSpecificBook = async id => {
   bookModalImg.setAttribute('src', book_image);
   bookAmazonUrl.setAttribute('href', amazon_product_url);
 };
+
+const addToShoppingList = () => {
+  const title = bookTitle.textContent;
+  const author = bookAuthor.textContent;
+  const description = bookDesc.textContent;
+  const bookImage = bookModalImg.getAttribute('src');
+  const amazonUrl = bookAmazonUrl.getAttribute('href');
+
+  const bookInfo = {
+    title,
+    author,
+    description,
+    bookImage,
+    amazonUrl,
+  };
+
+  let shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
+
+  shoppingList.push(bookInfo);
+
+  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+};
+
+bookModalBtn.addEventListener('click', addToShoppingList);
