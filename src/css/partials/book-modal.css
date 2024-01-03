@@ -17,7 +17,7 @@
   align-items: center;
 
   overflow-y: auto;
-  transition: opacity 0.3s ease-in-out;
+  animation: fadeIn 0.4s;
 }
 
 .book-modal.closed {
@@ -25,14 +25,6 @@
   pointer-events: none;
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 .book-modal.closed .book-modal-container {
   animation: fadeOut 0.3s ease-in-out;
 }
@@ -50,6 +42,25 @@
 
   border-radius: 18px;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .book-modal-wrapper {
   display: flex;
   flex-direction: column;

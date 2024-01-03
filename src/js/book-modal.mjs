@@ -13,6 +13,7 @@ const handleBookClick = async e => {
   try {
     const id = e.target.closest('.bl-book-image').parentNode.id;
     fetchSpecificBook(id);
+    bookModal.style.animation = '';
     bookModal.classList.toggle('hidden');
     document.addEventListener('keydown', closeModalOnEscape);
   } catch (err) {
@@ -21,8 +22,24 @@ const handleBookClick = async e => {
 };
 
 const closeModal = () => {
-  bookModal.classList.toggle('hidden');
-  document.removeEventListener('keydown', closeModalOnEscape);
+  bookModal.style.animation = 'fadeOut 0.5s';
+
+  const onAnimationEnd = () => {
+    bookModal.style.animation = '';
+    bookModal.classList.add('hidden');
+    document.removeEventListener('keydown', closeModalOnEscape);
+    bookModal.removeEventListener('animationend', onAnimationEnd);
+  };
+
+  bookModal.addEventListener('animationend', onAnimationEnd);
+
+  setTimeout(() => {
+    document.removeEventListener('keydown', closeModalOnEscape);
+  }, 100);
+
+  setTimeout(() => {
+    onAnimationEnd();
+  }, 500);
 };
 
 const closeModalOnEscape = e => {
