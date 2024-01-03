@@ -87,6 +87,8 @@ const addToShoppingList = () => {
   shoppingList.push(bookInfo);
 
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+
+  closeModal();
 };
 
 bookModalBtn.addEventListener('click', addToShoppingList);
