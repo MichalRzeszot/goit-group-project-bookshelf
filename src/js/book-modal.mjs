@@ -9,10 +9,14 @@ const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
 
 const handleBookClick = async e => {
-  const id = e.target.closest('.bl-book-image').parentNode.id;
-  fetchSpecificBook(id);
-  bookModal.classList.toggle('hidden');
-  document.addEventListener('keydown', closeModalOnEscape);
+  try {
+    const id = e.target.closest('.bl-book-image').parentNode.id;
+    fetchSpecificBook(id);
+    bookModal.classList.toggle('hidden');
+    document.addEventListener('keydown', closeModalOnEscape);
+  } catch (err) {
+    return;
+  }
 };
 
 const closeModal = () => {
