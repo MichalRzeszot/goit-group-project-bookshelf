@@ -58,7 +58,9 @@
         <!-- /// MODAL BELOW ///  -->
         <div class="backdrop is-hidden " data-modal-firebase>
   <div class="modal">
-    <button type="button" class="modal__close" data-modal-close>X</button>
+    <button type="button" class="modal__close" data-modal-close><svg width="20" height="20" class="modal__close--dimension">
+        <use href="/src/images/icons.svg#icon-cross"></use>
+      </svg></button>
 
     <div class="modal__wrapper">
       <div class="modal__container">
@@ -105,8 +107,8 @@
             <input type="submit" value="SIGN UP" class="modal__send" />
           </div>
             <div class="modal__navigation">
-            <a href="#" id="show-sign-up-modal-top">SIGN UP</a>
-            <a href="#" id="show-sign-in-modal-top">SIGN IN</a>
+            <a href="#" id="show-sign-up-modal-top" class="active">SIGN UP</a>
+            <a href="#" id="show-sign-in-modal-top" >SIGN IN</a>
           </div>
         </form>
 
@@ -160,7 +162,7 @@
           </div>
           <div class="modal__navigation">
             <a href="#" id="show-sign-up-modal-bottom">SIGN UP</a>
-            <a href="#" id="show-sign-in-modal-bottom">SIGN IN</a>
+            <a href="#" id="show-sign-in-modal-bottom" class="active">SIGN IN</a>
           </div>
         </form>
 
