@@ -9,7 +9,15 @@ const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
 const bookModalBtn = document.querySelector('#book-modal-btn');
 
+const loader = document.querySelector('#loader-container');
+
 const handleBookClick = async e => {
+  loader.classList.toggle('hidden');
+
+  setTimeout(() => {
+    loader.classList.toggle('hidden');
+  }, 500);
+
   try {
     const id = e.target.closest('.bl-book-image').parentNode.id;
     fetchSpecificBook(id);
