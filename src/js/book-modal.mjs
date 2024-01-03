@@ -15,7 +15,12 @@ const handleBookClick = async e => {
   loader.classList.toggle('hidden');
 
   setTimeout(() => {
-    loader.classList.toggle('hidden');
+    loader.classList.toggle('fadeOut');
+
+    setTimeout(() => {
+      loader.classList.toggle('hidden');
+      loader.classList.remove('fadeOut');
+    }, 500);
   }, 500);
 
   try {
@@ -47,7 +52,7 @@ const closeModal = () => {
 
   setTimeout(() => {
     onAnimationEnd();
-  }, 500);
+  }, 700);
 };
 
 const closeModalOnEscape = e => {
