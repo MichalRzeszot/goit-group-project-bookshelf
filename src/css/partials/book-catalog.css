@@ -32,7 +32,17 @@ a {
   font-weight: 700;
   text-transform: uppercase;
 }
-
+#to-up-btn {
+  color: hsl(120, 40, 30);
+  width: 150px;
+  height: 30px;
+  padding: 10px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+}
 @media (min-width: 768px) {
   .all-category {
     gap: 32px;
