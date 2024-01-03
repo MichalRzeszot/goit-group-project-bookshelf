@@ -19,7 +19,7 @@ const closeModal = () => {
 };
 
 document.addEventListener('keydown', e => {
-  if (e.keyCode === 27) {
+  if (e.key === 'Escape' || e.key === 'Esc') {
     closeModal();
   }
 });
