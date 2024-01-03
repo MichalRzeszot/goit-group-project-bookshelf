@@ -13,8 +13,7 @@ a {
   margin-block: 40px;
   width: 307px;
   height: 228px;
-  /* outline: 1px dashed green; */
-  /* outline: 1px solid red; */
+  padding-right: 20px;
 }
 /* .all-category::-webkit-scrollbar {
   background-color: transparent;
