@@ -28,7 +28,6 @@
       header.classList.add('menu-opened');
       mobileMenu.classList.remove('bg-white');
       mobileMenu.classList.add('bg-books');
-
       toggleMenuBtn.classList.remove('hamburger-button');
       toggleMenuBtn.classList.add('close-btn');
     }
