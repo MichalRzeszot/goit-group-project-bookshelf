@@ -1,2 +1,0 @@
-const e=document.querySelector(".all-category");fetch("https://books-backend.p.goit.global/books/category-list").then(e=>e.json()).then(t=>{t.forEach(t=>{let o=document.createElement("li");o.classList.add("list-section-item-list"),o.insertAdjacentHTML("afterbegin",`${t.list_name}`),e.append(o)})}).catch(e=>{console.log(`Fetching error during fetching category: ${e}`)}),e.addEventListener("click",e=>{sessionStorage.setItem("clickedBook",e.target.textContent),console.log(sessionStorage.getItem("clickedBook"))});
-//# sourceMappingURL=index.4ea62894.js.map
