@@ -16,29 +16,17 @@ const handleBookClick = async e => {
 
   const id = e.target.closest('[id]').id;
 
-  if (id) {
+  if (!id) return;
+
+  loader.classList.toggle('hidden');
+  setTimeout(() => {
     loader.classList.toggle('hidden');
-    setTimeout(() => {
-      loader.classList.toggle('hidden');
-    }, 500);
+  }, 650);
 
-    fetchSpecificBook(id);
-    bookModal.classList.toggle('hidden');
-    document.addEventListener('keydown', closeModalOnEscape);
-  } else {
-    return;
-  }
+  fetchSpecificBook(id);
+  bookModal.classList.toggle('hidden');
 
-  // if (!e.target.classList.contains('bl-container')) {
-  //   loader.classList.toggle('hidden');
-  //   setTimeout(() => {
-  //     loader.classList.toggle('hidden');
-  //   }, 500);
-  //   const id = e.target.closest('.bl-book-image').parentNode.id;
-  //   fetchSpecificBook(id);
-  //   bookModal.classList.toggle('hidden');
-  //   document.addEventListener('keydown', closeModalOnEscape);
-  // }
+  document.addEventListener('keydown', closeModalOnEscape);
 };
 
 const closeModal = () => {
