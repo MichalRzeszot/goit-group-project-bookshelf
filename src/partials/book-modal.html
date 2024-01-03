@@ -1,10 +1,11 @@
-<div class="hidden book-modal">
+<div id="book-modal" class="hidden book-modal">
   <div class="book-modal-container">
     <div class="book-modal-wrapper">
       <img
+        id="book-modal-image"
         class="book-modal-image"
         src="https://picsum.photos/seed/randomimg/287/408"
-        alt=""
+        alt="book cover"
         width="287"
         height="408"
       />
@@ -20,12 +21,16 @@
           ab perspiciatis nisi. Earum, inventore accusantium! Consequuntur, dolorem.
         </p>
         <div class="book-modal-icon-contatiner">
-          <!-- placeholder url -->
-          <a id="book-amazon-url" href="https://www.amazon.com/" target="_blank">
+          <a
+            id="book-amazon-url"
+            class="book-amazon-url"
+            href="https://www.amazon.com/"
+            target="_blank"
+          >
             <svg width="62" height="19">
               <use class="book-amazon-icon" href="/src/images/icons.svg#icon-amazon"></use></svg
           ></a>
-          <a href="" target="_blank">
+          <a class="book-link-icon" href="" target="_blank">
             <svg width="33" height="32">
               <use href="/src/images/icons.svg#icon-book-icon"></use>
             </svg>
@@ -35,7 +40,7 @@
     </div>
 
     <button id="book-modal-btn" class="book-modal-button">Add to Shoping List</button>
-    <button class="book-modal-close-button">
+    <button id="book-modal-close-btn" class="book-modal-close-button">
       <svg width="24" height="24">
         <use href="/src/images/icons.svg#icon-cross"></use>
       </svg>
