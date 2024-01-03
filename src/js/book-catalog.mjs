@@ -19,11 +19,7 @@ function creatingAList() {
     });
 }
 creatingAList();
-placeForList.addEventListener('click', ev => {
-  clickedBook = sessionStorage.setItem('clickedBook', ev.target.textContent);
-  clickedCategory = sessionStorage.getItem('clickedBook');
-  console.log(clickedCategory);
-});
+
 // Sekcja przycisku do przewijania w góre strony
 window.addEventListener('scroll', scrollhandler);
 function scrollhandler() {
