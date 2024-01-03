@@ -12,49 +12,38 @@ const bookModalBtn = document.querySelector('#book-modal-btn');
 const loader = document.querySelector('#loader-container');
 
 const handleBookClick = async e => {
-  loader.classList.toggle('hidden');
+  if (e.target.classList.contains('bl-container')) return;
 
-  setTimeout(() => {
-    loader.classList.toggle('fadeOut');
+  const id = e.target.closest('[id]').id;
 
+  if (id) {
+    loader.classList.toggle('hidden');
     setTimeout(() => {
       loader.classList.toggle('hidden');
-      loader.classList.remove('fadeOut');
     }, 500);
-  }, 500);
 
-  try {
-    const id = e.target.closest('.bl-book-image').parentNode.id;
     fetchSpecificBook(id);
-    bookModal.style.animation = '';
     bookModal.classList.toggle('hidden');
     document.addEventListener('keydown', closeModalOnEscape);
-  } catch (err) {
+  } else {
     return;
   }
+
+  // if (!e.target.classList.contains('bl-container')) {
+  //   loader.classList.toggle('hidden');
+  //   setTimeout(() => {
+  //     loader.classList.toggle('hidden');
+  //   }, 500);
+  //   const id = e.target.closest('.bl-book-image').parentNode.id;
+  //   fetchSpecificBook(id);
+  //   bookModal.classList.toggle('hidden');
+  //   document.addEventListener('keydown', closeModalOnEscape);
+  // }
 };
 
 const closeModal = () => {
-  bookModal.style.animation = 'fadeOut 0.5s';
-
-  const onAnimationEnd = () => {
-    bookModal.style.animation = '';
-    bookModal.classList.add('hidden');
-    document.removeEventListener('keydown', closeModalOnEscape);
-    bookModal.removeEventListener('animationend', onAnimationEnd);
-  };
-
-  bookModal.addEventListener('animationend', onAnimationEnd);
-
-  setTimeout(() => {
-    document.removeEventListener('keydown', closeModalOnEscape);
-  }, 100);
-
-  setTimeout(() => {
-    onAnimationEnd();
-  }, 700);
+  bookModal.classList.toggle('hidden');
 };
-
 const closeModalOnEscape = e => {
   if (e.key === 'Escape' || e.key === 'Esc') {
     closeModal();

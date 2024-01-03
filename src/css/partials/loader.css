@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
 }
-@keyframes fadeOut {
+@keyframes loaderfadeOut {
   from {
     opacity: 1;
   }
@@ -25,7 +25,7 @@
   }
 }
 .fadeOut {
-  animation: fadeOut 0.5s;
+  animation: loaderfadeOut 0.5s;
 }
 
 .loader {
