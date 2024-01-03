@@ -83,6 +83,9 @@ bookList.addEventListener('click', ev => {
 
 //funkcja przekazująca kategorię ksiązek z menu do funkcji pobierającej listę książek
 blPlaceForList.addEventListener('click', ev => {
+  if (ev.target.nodeName !== 'LI') {
+    return;
+  }
   headerRender(ev.target.textContent);
   booksFetch(ev.target.textContent);
 });
