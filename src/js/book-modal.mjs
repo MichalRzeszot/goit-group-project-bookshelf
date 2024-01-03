@@ -12,17 +12,19 @@ const handleBookClick = async e => {
   const id = e.target.closest('.bl-book-image').parentNode.id;
   fetchSpecificBook(id);
   bookModal.classList.toggle('hidden');
+  document.addEventListener('keydown', closeModalOnEscape);
 };
 
 const closeModal = () => {
   bookModal.classList.toggle('hidden');
+  document.removeEventListener('keydown', closeModalOnEscape);
 };
 
-document.addEventListener('keydown', e => {
+const closeModalOnEscape = e => {
   if (e.key === 'Escape' || e.key === 'Esc') {
     closeModal();
   }
-});
+};
 
 bookModalCloseBtn.addEventListener('click', closeModal);
 bookListContainer.addEventListener('click', handleBookClick);
