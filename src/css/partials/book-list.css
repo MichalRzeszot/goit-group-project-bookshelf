@@ -14,7 +14,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-section {
     max-width: 996px;
   }
@@ -22,6 +22,19 @@
 
 .bl-header {
   margin-bottom: 40px;
+  font-family: DM Sans;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -1.28px;
+}
+
+@media screen and (min-width: 768px) {
+  .bl-header {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
 }
 
 .bl-span {
@@ -29,7 +42,7 @@
 }
 
 .bl-book-category {
-  color: #b4afaf;
+  color: var(--gray);
   font-family: DM Sans;
   font-size: 14px;
   font-weight: 400;
@@ -46,7 +59,7 @@
   row-gap: 40px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-books-list {
     column-gap: 24px;
   }
@@ -64,7 +77,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-book-card {
     height: 306px;
     width: 180px;
@@ -85,7 +98,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-all-books:nth-child(-n + 5) {
     display: block;
   }
@@ -116,7 +129,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-book-image {
     height: 256px;
     width: 180px;
@@ -135,7 +148,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-book-image img {
     height: 256px;
     width: 180px;
@@ -153,7 +166,7 @@
 }
 
 .bl-book-author {
-  color: #b4afaf;
+  color: var(--gray);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -184,7 +197,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
   .bl-see-more-btn {
     margin-top: 32px;
   }
@@ -211,7 +224,6 @@
   left: 0;
   width: 100%;
   height: 25%;
-  padding: auto;
   background-color: var(--yellow);
   transform: translateY(100%);
   transition: transform var(--standard-animation);

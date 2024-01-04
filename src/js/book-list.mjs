@@ -1,24 +1,29 @@
-//deklaracja zmiennych
 const bookListHeader = document.querySelector('.bl-header');
+const blPlaceForList = document.querySelector('.all-category');
 const bookList = document.querySelector('.bl-container');
 
 bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 
-//funkcja pobierająca liste książek
 async function booksFetch(category = 'top-books') {
-  if (category === 'All Categories') {
-    category = 'top-books';
-  }
-  const baseUrl = 'https://books-backend.p.goit.global/books/';
-  if (category != 'top-books') {
-    category = `category?category=${category}`;
-  }
-  const response = await fetch(baseUrl + category);
-  const books = await response.json();
-  if (category === 'top-books') {
-    allBooksRender(books);
+  let categoryId = category;
+  if (category === 'All Categories' || category === 'top-books') {
+    try {
+      const response = await fetch('https://books-backend.p.goit.global/books/top-books');
+      const books = await response.json();
+      allBooksRender(books);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
   } else {
-    categoryBooksRender(books);
+    try {
+      const response = await fetch(
+        `https://books-backend.p.goit.global/books/category?category=${categoryId}`,
+      );
+      const books = await response.json();
+      categoryBooksRender(books);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
   }
 }
 
@@ -26,8 +31,9 @@ booksFetch();
 
 //funkcja wyświetlająca wszystkie książki
 function allBooksRender(books) {
+  let booksArr = books;
   let bookListHtml = '';
-  books.forEach(bookCategory => {
+  booksArr.forEach(bookCategory => {
     bookListHtml += `<p class="bl-book-category">${bookCategory.list_name}</p><ul class="bl-books-list">`;
     bookCategory.books.forEach(book => {
       bookListHtml += `<li class="bl-book-card bl-all-books" id="${book._id}">
@@ -44,16 +50,13 @@ function allBooksRender(books) {
     bookListHtml += `</ul><button id="${bookCategory.list_name}"class="bl-see-more-btn">SEE MORE</button>`;
   });
   bookList.innerHTML = bookListHtml;
-  const seeMoreBtn = document.querySelectorAll('.bl-see-more-btn');
-  seeMoreBtn.forEach(btn => {
-    btn.addEventListener('click', btnClickHandler);
-  });
 }
 
 //funkcja wyświetlająca wszystkie książki z danej kategorii
 function categoryBooksRender(books) {
+  let booksArr = books;
   let bookListHtml = '<ul class="bl-books-list">';
-  books.forEach(book => {
+  booksArr.forEach(book => {
     bookListHtml += `<li class="bl-book-card" id="${book._id}">
       <div class="bl-book-image">
       <img src="${book.book_image}" alt="${book.title}"/>
@@ -70,24 +73,29 @@ function categoryBooksRender(books) {
 }
 
 //funkcja przekazująca kategorię ksiązek z buttona do funkcji pobierającej listę książek
-function btnClickHandler() {
-  headerRender(this.id);
-  booksFetch(this.id);
-  scroll(0, 0);
-}
+bookList.addEventListener('click', ev => {
+  if (ev.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  headerRender(ev.target.id);
+  booksFetch(ev.target.id);
+});
 
 //funkcja przekazująca kategorię ksiązek z menu do funkcji pobierającej listę książek
-placeForList.addEventListener('click', ev => {
+blPlaceForList.addEventListener('click', ev => {
+  if (ev.target.nodeName !== 'LI') {
+    return;
+  }
   headerRender(ev.target.textContent);
   booksFetch(ev.target.textContent);
 });
 
 //funkcja renderująca tytuł kategorii
-function headerRender(category) {
-  if (category === 'All Categories') {
-    category = 'Best Sellers Books';
+function headerRender(categoryName) {
+  if (categoryName === 'All Categories') {
+    categoryName = 'Best Sellers Books';
   }
-  const headerArr = category.split(' ');
+  const headerArr = categoryName.split(' ');
   const lastWord = headerArr.pop();
   const header = headerArr.join(' ');
   bookListHeader.innerHTML = `${header} <span class="bl-span">${lastWord} </span>`;
