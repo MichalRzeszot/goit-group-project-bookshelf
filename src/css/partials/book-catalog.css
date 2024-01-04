@@ -13,10 +13,9 @@ a {
   margin-block: 40px;
   width: 307px;
   height: 228px;
-  /* outline: 1px dashed green; */
-  /* outline: 1px solid red; */
+  padding-right: 20px;
 }
-.all-category::-webkit-scrollbar {
+/* .all-category::-webkit-scrollbar {
   background-color: transparent;
   outline: 1px dashed rebeccapurple;
 }
@@ -28,7 +27,7 @@ a {
   width: 8px;
   border-radius: 12px;
   background-color: hsla(0, 0%, 7%, 0.6);
-}
+} */
 .list-section-item-list {
   font-family: DM Sans;
   color: var(--black1alfa);
