@@ -22,6 +22,19 @@
 
 .bl-header {
   margin-bottom: 40px;
+  font-family: DM Sans;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -1.28px;
+}
+
+@media screen and (min-width: 768px) {
+  .bl-header {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
 }
 
 .bl-span {
