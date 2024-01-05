@@ -7,20 +7,43 @@ const bookTitle = document.querySelector('#book-title');
 const bookAuthor = document.querySelector('#book-author');
 const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
+const bookModalBtn = document.querySelector('#book-modal-btn');
+
+const showModal = () => {
+  bookModal.classList.remove('fade-out');
+  bookModal.classList.add('fade-in');
+};
+const closeModal = () => {
+  bookModal.classList.remove('fade-in');
+  bookModal.classList.add('fade-out');
+};
 
 const addToShoppingListButton = document.querySelector("#book-modal-btn");
 
 let selectedBook = null;
 
 const handleBookClick = async e => {
-  const id = e.target.closest('.bl-book-image').parentNode.id;
+  if (e.target.classList.contains('bl-container')) return;
+
+  const id = e.target.closest('[id]').id;
+
+  if (!id) return;
+
+  showLoader();
+  setTimeout(() => {
+    disableLoader();
+  }, 400);
+
   fetchSpecificBook(id);
-  bookModal.classList.toggle('hidden');
+  showModal();
+
+  document.addEventListener('keydown', closeModalOnEscape);
 };
 
-const closeModal = () => {
-  selectedBook = null;
-  bookModal.classList.toggle('hidden');
+const closeModalOnEscape = e => {
+  if (e.key === 'Escape' || e.key === 'Esc') {
+    closeModal();
+  }
 };
 
 const getShoppingList = () => {
@@ -83,7 +106,7 @@ const fetchSpecificBook = async id => {
 
   bookModalImg.setAttribute('src', book_image);
   bookAmazonUrl.setAttribute('href', amazon_product_url);
-
+  
   selectedBook = data;
 
   const shoppingList = getShoppingList();
