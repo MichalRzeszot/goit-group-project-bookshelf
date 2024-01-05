@@ -9,8 +9,6 @@ const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
 const bookModalBtn = document.querySelector('#book-modal-btn');
 
-const loader = document.querySelector('#loader-container');
-
 const handleBookClick = async e => {
   if (e.target.classList.contains('bl-container')) return;
 

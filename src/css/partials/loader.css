@@ -16,17 +16,6 @@
   justify-content: center;
   align-items: center;
 }
-@keyframes loaderfadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-.fadeOut {
-  animation: loaderfadeOut 0.5s;
-}
 
 .loader {
   color: var(--violet);
@@ -77,4 +66,15 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.fade-in {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
