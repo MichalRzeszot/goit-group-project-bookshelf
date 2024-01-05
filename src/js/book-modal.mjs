@@ -7,7 +7,18 @@ const bookTitle = document.querySelector('#book-title');
 const bookAuthor = document.querySelector('#book-author');
 const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
-const bookModalBtn = document.querySelector('#book-modal-btn');
+
+const loader = document.querySelector('#loader-container');
+
+const showLoader = () => {
+  loader.classList.remove('fade-out');
+  loader.classList.add('fade-in');
+};
+
+const disableLoader = () => {
+  loader.classList.remove('fade-in');
+  loader.classList.add('fade-out');
+};
 
 const showModal = () => {
   bookModal.classList.remove('fade-out');
@@ -18,7 +29,7 @@ const closeModal = () => {
   bookModal.classList.add('fade-out');
 };
 
-const addToShoppingListButton = document.querySelector("#book-modal-btn");
+const addToShoppingListButton = document.querySelector('#book-modal-btn');
 
 let selectedBook = null;
 
@@ -30,6 +41,7 @@ const handleBookClick = async e => {
   if (!id) return;
 
   showLoader();
+
   setTimeout(() => {
     disableLoader();
   }, 400);
@@ -50,19 +62,17 @@ const getShoppingList = () => {
   // Dodaj selectedBook do localStorage
   const shoppingListJson = localStorage.getItem('shoppingList');
   let shoppingList;
-  
+
   if (JSON.parse(shoppingListJson) == null) {
     shoppingList = [];
-  }
-  else {
+  } else {
     shoppingList = JSON.parse(shoppingListJson);
   }
 
-  return shoppingList
-}
+  return shoppingList;
+};
 
 const addToShoppingList = () => {
-  
   //some() sprawdza, czy w tablicy shoppingList istnieje przynajmniej jedna książka, której identyfikator id jest równy identyfikatorowi wybranej książki - selectedBook.id. Jeśli choć jedna książka o takim identyfikatorze istnieje w liście zakupów, zmienna bookAlreadyInList będzie miała wartość true
   //Mogłabym użyć find(), ale wtedy metoda zwraca ten znaleziony element, a nie wartość logiczna true lub false
   const shoppingList = getShoppingList();
@@ -76,15 +86,14 @@ const addToShoppingList = () => {
     const updatedShoppingListJson = JSON.stringify(updatedShoppingList);
     localStorage.setItem('shoppingList', updatedShoppingListJson);
 
-   
-    addToShoppingListButton.textContent = "Add to Shopping List";
+    addToShoppingListButton.textContent = 'Add to Shopping List';
   } else {
     shoppingList.push(selectedBook);
     const updatedShoppingListJson = JSON.stringify(shoppingList);
     localStorage.setItem('shoppingList', updatedShoppingListJson);
 
     // zmiana nazwy przycisku
-    addToShoppingListButton.textContent = "Remove from Shopping List";
+    addToShoppingListButton.textContent = 'Remove from Shopping List';
   }
 };
 
@@ -106,17 +115,15 @@ const fetchSpecificBook = async id => {
 
   bookModalImg.setAttribute('src', book_image);
   bookAmazonUrl.setAttribute('href', amazon_product_url);
-  
+
   selectedBook = data;
 
   const shoppingList = getShoppingList();
   const bookAlreadyInList = shoppingList.some(book => book._id === selectedBook._id);
 
   if (bookAlreadyInList) {
-    addToShoppingListButton.textContent = "Remove from Shopping List";
-
+    addToShoppingListButton.textContent = 'Remove from Shopping List';
+  } else {
+    addToShoppingListButton.textContent = 'Add to Shopping List';
   }
-  else {
-    addToShoppingListButton.textContent = "Add to Shopping List";
-  }
- };
+};
