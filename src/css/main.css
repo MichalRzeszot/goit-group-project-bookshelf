@@ -2,8 +2,10 @@
 
 @import url('ścieżka do pliku z twoimi stylami'); */
 @import url('./partials/book-catalog.css');
+@import url('./partials/slider.css');
 @import url('./partials/book-modal.css');
 @import url('./partials/header.css');
 @import url('./partials/shopping-list.css');
 @import url('./partials/book-list.css');
 @import url('./partials/loader.css');
+@import url('./partials/firebase.css');

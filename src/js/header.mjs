@@ -28,7 +28,6 @@
       header.classList.add('menu-opened');
       mobileMenu.classList.remove('bg-white');
       mobileMenu.classList.add('bg-books');
-
       toggleMenuBtn.classList.remove('hamburger-button');
       toggleMenuBtn.classList.add('close-btn');
     }
@@ -39,9 +38,9 @@
   const signUpClick = () => {
     signUpBtn.classList.add('hidden');
     signUpForm.classList.remove('hidden');
-    header.classList.add('hidden');
+    // header.classList.add('hidden');
     mobileMenu.classList.remove('bg-books');
-    mobileMenu.classList.add('bg-form');
+    // mobileMenu.classList.add('bg-form');
   };
   signUpBtn.addEventListener('click', signUpClick);
 
