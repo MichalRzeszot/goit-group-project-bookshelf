@@ -27,31 +27,33 @@ document.addEventListener('DOMContentLoaded', function () {
          <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
         </div>
 
-      <div class="text-container">
-          <div class="book-card-header">
-              <div class="card-title-container">
-                    <p class="book-title">${book.title}</p>
-                    <p class="book-category">${book.list_name}</p>
-              </div>
-             <div>
-                    <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
-                    <svg class="remove-button-item"><use href="./images/icons.svg#icon-trash-03"></use></svg>
-                    </button>
-              </div>
-          </div>
-          <div class="card-book-data-container">
-              <div class="book-description">${book.description}</div>
-              <div class="book-author">${book.author}</div>
-          </div>
-          <div class="purchase-links">
-          <a id="book-amazon-url" href="${book.amazon_product_url}">
-          <svg width="32" height="11">
-          <use class="amazon-icon" href="/src/images/icons.svg#icon-amazon"></use></svg></a>
-          <a href="${book.buy_links[0].url}"><svg width="16" height="16">
-          <use href="/src/images/icons.svg#icon-book-icon"></use></a>
-     </div> 
+        <div class="text-container">
+        <div class="card-book-data-container">
+            <div class="book-card-header">
+                  <div class="card-title-container">
+                         <p class="book-title">${book.title}</p>
+                         <p class="book-category">${book.list_name}</p>
+                  </div>
+                  <div>
+                        <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
+                             <svg class="remove-button-item"><use href="./images/icons.svg#icon-trash-03"></use></svg>
+                        </button>
+                  </div>   
+            </div> 
+            <div class="book-description">${book.description}</div>
+         </div>
+      
+        <div class="card-book-footer">
+            <div class="book-author">${book.author}</div>
+            <div class="purchase-links">
+             <a id="book-amazon-url" href="${book.amazon_product_url}">
+                <svg width="32" height="11">
+                <use class="amazon-icon" href="/src/images/icons.svg#icon-amazon"></use></svg></a>
+             <a href="${book.buy_links[0].url}"><svg width="16" height="16">
+             <use href="/src/images/icons.svg#icon-book-icon"></use></a>
+            </div> 
+        </div>
       </div>`;
-
     return card;
   }
 
