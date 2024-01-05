@@ -9,6 +9,15 @@ const bookDesc = document.querySelector('#book-desc');
 const bookAmazonUrl = document.querySelector('#book-amazon-url');
 const bookModalBtn = document.querySelector('#book-modal-btn');
 
+const showModal = () => {
+  bookModal.classList.remove('fade-out');
+  bookModal.classList.add('fade-in');
+};
+const closeModal = () => {
+  bookModal.classList.remove('fade-in');
+  bookModal.classList.add('fade-out');
+};
+
 const handleBookClick = async e => {
   if (e.target.classList.contains('bl-container')) return;
 
@@ -16,22 +25,17 @@ const handleBookClick = async e => {
 
   if (!id) return;
 
-  // loader.classList.toggle('hidden');
-
   showLoader();
   setTimeout(() => {
     disableLoader();
   }, 400);
 
   fetchSpecificBook(id);
-  bookModal.classList.toggle('hidden');
+  showModal();
 
   document.addEventListener('keydown', closeModalOnEscape);
 };
 
-const closeModal = () => {
-  bookModal.classList.toggle('hidden');
-};
 const closeModalOnEscape = e => {
   if (e.key === 'Escape' || e.key === 'Esc') {
     closeModal();
