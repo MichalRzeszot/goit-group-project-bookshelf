@@ -37,13 +37,14 @@
   border: 2px solid var(--black);
 
   max-width: 335px;
-  max-height: calc(762px - 2 * (40px + 24px));
+  max-height: 762px;
 
   display: flex;
   flex-direction: column;
 
   border-radius: 18px;
 
+  box-sizing: border-box;
   overflow-y: auto;
 }
 
