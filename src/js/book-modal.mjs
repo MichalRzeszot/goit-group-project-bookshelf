@@ -16,10 +16,12 @@ const handleBookClick = async e => {
 
   if (!id) return;
 
-  loader.classList.toggle('hidden');
+  // loader.classList.toggle('hidden');
+
+  showLoader();
   setTimeout(() => {
-    loader.classList.toggle('hidden');
-  }, 650);
+    disableLoader();
+  }, 400);
 
   fetchSpecificBook(id);
   bookModal.classList.toggle('hidden');
