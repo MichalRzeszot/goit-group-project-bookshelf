@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dodaję wymagane informacje o książce
     card.innerHTML = `
-        <div class="image-container">
+        <div>
          <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
         </div>
 
@@ -39,16 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     </button>
               </div>
           </div>
-
-        <p class="book-description">${book.description}</p>
-
-          <div class="book-author">${book.author}</div>
-          
+          <div class="card-book-data-container">
+              <div class="book-description">${book.description}</div>
+              <div class="book-author">${book.author}</div>
+          </div>
           <div class="purchase-links">
-                <a href="${book.buy_links[0].url}">
-                    LINK
-                </a>
-          </div> 
+          <a id="book-amazon-url" href="${book.amazon_product_url}">
+          <svg width="32" height="11">
+          <use class="amazon-icon" href="/src/images/icons.svg#icon-amazon"></use></svg></a>
+          <a href="${book.buy_links[0].url}"><svg width="16" height="16">
+          <use href="/src/images/icons.svg#icon-book-icon"></use></a>
+     </div> 
       </div>`;
 
     return card;
