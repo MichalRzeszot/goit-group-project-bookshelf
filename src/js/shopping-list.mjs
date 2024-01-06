@@ -1,3 +1,5 @@
+import trashIcon from './../images/icons.svg#icon-trash-03'; 
+
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma
   const shoppingListData = JSON.parse(localStorage.getItem('shoppingList')) || [];
@@ -125,34 +127,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dodaję wymagane informacje o książce
     card.innerHTML = `
-        <div class="image-container">
-         <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
-        </div>
+    <div>
+    <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
+   </div>
 
-      <div class="text-container">
-          <div class="book-card-header">
-              <div class="card-title-container">
+   <div class="text-container">
+   <div class="card-book-data-container">
+       <div class="book-card-header">
+             <div class="card-title-container">
                     <p class="book-title">${book.title}</p>
                     <p class="book-category">${book.list_name}</p>
-              </div>
+             </div>
              <div>
-                    <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
-                    <svg class="remove-button-item"><use href="./images/icons.svg#icon-trash-03"></use></svg>
-                    </button>
-              </div>
-          </div>
-
-        <p class="book-description">${book.description}</p>
-
-          <div class="book-author">${book.author}</div>
-          
-          <div class="purchase-links">
-                <a href="${book.buy_links[0].url}">
-                    LINK
-                </a>
-          </div> 
-      </div>`;
-
+                   <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
+                   <div class="remove-button-item">
+                   <svg>
+                   <use href="${trashIcon}"></use></svg></div>
+                   <!--<use href="./images/icons.svg#icon-trash-03"></use></svg></div>-->
+                   </button>
+             </div>   
+       </div> 
+       <div class="book-description">${book.description}</div>
+    </div>
+ 
+   <div class="card-book-footer">
+       <div class="book-author">${book.author}</div>
+       <div class="purchase-links">
+        <a class="amazon-icon" href="${book.amazon_product_url}">
+           <svg>
+           <use href="/src/images/icons.svg#icon-amazon"></use></svg></a>
+        <a href="${book.buy_links[1].url}"><svg width="16" height="16">
+        <use href="/src/images/icons.svg#icon-book-icon"></use></a>
+       </div> 
+   </div>
+ </div>`;
     return card;
   }
 
