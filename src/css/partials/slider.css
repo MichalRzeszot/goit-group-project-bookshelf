@@ -1,13 +1,11 @@
-.slider {
-}
-
 .slider-container {
-  background: linear-gradient(to bottom, #4f2ee8 18%.03, #bdb2f1);
+  background: linear-gradient(to bottom, #4f2ee8 18%, #bdb2f1);
   width: 356px;
   height: 474px;
   box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
   border-radius: 16px;
   padding: 28px 40px;
+  overflow: hidden;
 }
 
 .slider-heading-div {
