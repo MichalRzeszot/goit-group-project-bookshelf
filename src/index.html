@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,20 +27,22 @@
     <link rel="stylesheet" href="./css/partials/firebase.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   </head>
-  <body class="white-bg">
+  <body>
     <header>
       <include src="./partials/header.html"></include>
     </header>
     <main>
       <include src="./partials/book-catalog.html"></include>
+      <include src="./partials/slider.html"></include>
       <include src="./partials/book-modal.html"></include>
       <include src="./partials/book-list.html"></include>
-
       <include src="./partials/modal.html"></include>
-      <!-- <include src="./partials/firebase.html"></include> -->
+      <include src="./partials/loader.html"></include>
+      <include src="./partials/firebase.html"></include>
+      <include src="./partials/shopping-list.html"></include>
     </main>
     <footer></footer>
-
+    <script type="module" src="./js/slider.js"></script>
     <script type="module" src="./js/book-catalog.mjs"></script>
     <script type="module" src="./js/book-list.mjs"></script>
     <script type="module" src="./js/book-modal.mjs"></script>

@@ -2,6 +2,18 @@ const bookListHeader = document.querySelector('.bl-header');
 const blPlaceForList = document.querySelector('.all-category');
 const bookList = document.querySelector('.bl-container');
 
+const loader = document.querySelector('#loader-container');
+
+const showLoader = () => {
+  loader.classList.remove('fade-out');
+  loader.classList.add('fade-in');
+};
+
+const disableLoader = () => {
+  loader.classList.remove('fade-in');
+  loader.classList.add('fade-out');
+};
+
 bookListHeader.innerHTML = 'Best Sellers <span class="bl-span">Books</span>';
 
 async function booksFetch(category = 'top-books') {
@@ -86,6 +98,12 @@ blPlaceForList.addEventListener('click', ev => {
   if (ev.target.nodeName !== 'LI') {
     return;
   }
+
+  showLoader();
+  setTimeout(() => {
+    disableLoader();
+  }, 400);
+
   headerRender(ev.target.textContent);
   booksFetch(ev.target.textContent);
 });

@@ -1,11 +1,24 @@
 :root {
-  --black: #111111;
-  --black1: #202024;
+  --black: hsl(0, 0%, 7%);
+  --black1: hsl(240, 6%, 13%);
   --black1alfa: hsla(0, 0%, 7%, 0.6);
-  --violet: #4f2ee8;
-  --yellow: #eac645;
-  --white: #ffffff;
-  --project-background: #f6f6f6;
-  --gray: #b4afaf;
-  --violet-gradient: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%);
+  --violet: hsl(251, 80%, 55%);
+  --violet2: hsl(251, 80%, 55%);
+  --yellow: hsl(47, 80%, 59%);
+  --white: hsl(0, 0%, 100%);
+  --project-background: hsl(0, 0%, 96%);
+  --gray: hsl(0, 3%, 70%);
+  --violet-gradient: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    hsl(251, 80%, 55%) 18.03%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+
+.dark-mode {
+  --black: hsl(0, 0%, 100%);
+  --black1alfa: hsla(0, 0%, 100%, 0.6);
+  --violet2: hsl(47, 80%, 59%);
+  --white: hsl(0, 0%, 100%);
+  --project-background: hsl(240, 6%, 13%);
 }

@@ -4,6 +4,7 @@ a {
 }
 
 .all-category {
+  background-color: var(--project-background);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -13,10 +14,9 @@ a {
   margin-block: 40px;
   width: 307px;
   height: 228px;
-  /* outline: 1px dashed green; */
-  /* outline: 1px solid red; */
+  padding-right: 20px;
 }
-.all-category::-webkit-scrollbar {
+/* .all-category::-webkit-scrollbar {
   background-color: transparent;
   outline: 1px dashed rebeccapurple;
 }
@@ -28,7 +28,7 @@ a {
   width: 8px;
   border-radius: 12px;
   background-color: hsla(0, 0%, 7%, 0.6);
-}
+} */
 .list-section-item-list {
   font-family: DM Sans;
   color: var(--black1alfa);
@@ -39,7 +39,7 @@ a {
 }
 
 .list-section-item-list:hover {
-  color: var(--violet);
+  color: var(--violet2);
   font-weight: 700;
   text-transform: uppercase;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
