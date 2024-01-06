@@ -144,12 +144,12 @@ input#switch:checked + .h-switch:after {
 .bg-white {
   background-color: var(--white);
 }
-.bg-books .sl-container {
+/* .bg-books .sl-container {
   display: none;
 }
 .bg-white .sl-container {
   display: block;
-}
+} */
 .bg-books .menu-content {
   display: block;
 }
@@ -174,12 +174,30 @@ input#switch:checked + .h-switch:after {
   border: none;
   height: 42px;
 }
-.user-menu .active a {
+.button-home:hover,
+.button-shopping:hover {
   border-radius: 36px;
   background: var(--yellow);
   color: var(--black);
   display: flex;
   align-items: flex-start;
+}
+.button-shopping:hover .bag-item {
+  stroke: var(--black);
+}
+.bag-item {
+  stroke: var(--white);
+}
+.user-current {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.user-text {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.44px;
 }
 
 .home-item {
@@ -188,7 +206,7 @@ input#switch:checked + .h-switch:after {
 }
 
 .button-home {
-  margin: 183px 174px auto 129px;
+  margin: 130px 174px auto 129px;
   width: 72px;
 }
 .home-text {
@@ -199,10 +217,10 @@ input#switch:checked + .h-switch:after {
   letter-spacing: -0.56px;
 }
 .shopping-item {
-  width: 145px;
+  width: 150px;
   height: 20px;
   margin: 17px auto auto 129px;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .shopping-text {
   font-size: 14px;
@@ -266,4 +284,27 @@ input#switch:checked + .h-switch:after {
 .hidden {
   display: none;
   visibility: hidden;
+}
+/**log out**/
+.log-out-btn {
+  border-radius: 18px;
+  border: 1.5px solid #111;
+  background: var(--white);
+  width: 118px;
+  height: 48px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-top: 400px;
+  margin-left: 20px;
+}
+.log-out-text {
+  color: var(--black);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+}
+.arrow-item {
+  margin-left: 5px;
 }

@@ -54,152 +54,54 @@
             <use href="./images/icons.svg#arrow"></use>
           </svg>
         </button>
-
-        <!-- /// MODAL BELOW ///  -->
-        <div class="backdrop is-hidden " data-modal-firebase>
-  <div class="modal">
-    <button type="button" class="modal__close" data-modal-close><svg width="20" height="20" class="modal__close--dimension">
-        <use href="/src/images/icons.svg#icon-cross"></use>
-      </svg></button>
-
-    <div class="modal__wrapper">
-      <div class="modal__container">
-        <!-- /// MODAL ABOVE ///  -->
-
-        <!-- WORKING CODE FOR SIGN UP BELOW -->
-
-        <form id="sign-up-form" class="modal__container--text">
-          <div class="modal__box">
-            <input
-              type="name"
-              id="name-signup"
-              name="name"
-              minlength="3"
-              required
-              placeholder="NAME"
-              class="modal__box--input"
-            />
-          </div>
-          <div class="modal__box">
-            <input
-              type="email"
-              id="email-signup"
-              name="email"
-              minlength="3"
-              required
-              placeholder="EMAIL"
-              class="modal__box--input"
-            />
-          </div>
-
-          <div class="modal__box">
-            <input
-              type="password"
-              id="password-signup"
-              name="password"
-              required
-              minlength="6"
-              placeholder="PASSWORD"
-              class="modal__box--input"
-            />
-          </div>
-          <div>
-            <input type="submit" value="SIGN UP" class="modal__send" />
-          </div>
-            <div class="modal__navigation">
-            <a href="#" id="show-sign-up-modal-top" class="active">SIGN UP</a>
-            <a href="#" id="show-sign-in-modal-top" >SIGN IN</a>
-          </div>
-        </form>
-
-        <div id="signed-up-content" style="display: none">
-          <h1>Użytkownik został zarejestrowany</h1>
-        </div>
-
-        </div>
-
-       <!-- WORKING CODE FOR SIGN UP ABOVE -->
-
-        <!-- WORKING CODE FOR SIGN IN BELOW -->
-
-        <form id="sign-in-form" class="modal__container--text">
-          <div class="modal__box">
-            <input
-              type="name"
-              id="name"
-              name="name"
-              minlength="3"
-              required
-              placeholder="NAME"
-              class="modal__box--input"
-            />
-          </div>
-          <div class="modal__box">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              minlength="3"
-              required
-              placeholder="EMAIL"
-              class="modal__box--input"
-            />
-          </div>
-
-          <div class="modal__box">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              required
-              minlength="6"
-              placeholder="PASSWORD"
-              class="modal__box--input"
-            />
-          </div>
-          <div>
-            <input type="submit" value="SIGN IN" class="modal__send" />
-          </div>
-          <div class="modal__navigation">
-            <a href="#" id="show-sign-up-modal-bottom">SIGN UP</a>
-            <a href="#" id="show-sign-in-modal-bottom" class="active">SIGN IN</a>
-          </div>
-        </form>
-
-        <div id="signed-in-content" style="display: none">
-          <h1>Użytkownik został zalogowany</h1>
-        </div>
       </div>
-    </div>
 
-    <!-- WORKING CODE FOR SIGN IN ABOVE -->
-  </div>
-</div>
-        <!-- formularz logowania (ukryty) -->
-        <div class="sign-up-form hidden">
-          <!-- <button class="sign-up-form-btn">
+      <!-- formularz logowania (ukryty) -->
+      <div class="sign-up-form hidden">
+        <!-- <button class="sign-up-form-btn">
             <span class="sign-form-text">Sign up</span>
           </button> -->
-        </div>
       </div>
-      <div class="user-menu hidden">
-        <div class="home-item active">
-          <a class="button-home" href="./index.html"><span class="home-text">HOME</span></a>
-        </div>
-        <div class="shopping-item active">
-          <a>
-            <span class="shopping-text">SHOPPING LIST</span>
-            <svg
-              class="bag-item"
-              width="20px"
-              height="20px"
-              viewBox="0 0 28 28"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <use href="./images/icons.svg#bag"></use>
-            </svg>
-          </a>
-        </div>
+    </div>
+    <div class="user-menu hidden">
+      <div class="user-current">
+        <a class="button-user">
+          <span class="user-text"></span>
+        </a>
+      </div>
+
+      <div class="home-item">
+        <a class="button-home" href="./index.html"><span class="home-text">HOME</span></a>
+      </div>
+
+      <div class="shopping-item">
+        <a class="button-shopping" href="./shopping-list.html">
+          <span class="shopping-text">SHOPPING LIST</span>
+          <svg
+            class="bag-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#bag"></use>
+          </svg>
+        </a>
+      </div>
+
+      <div>
+        <button class="log-out-btn">
+          <span class="log-out-text">Log out</span>
+          <svg
+            class="arrow-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#arrow"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
