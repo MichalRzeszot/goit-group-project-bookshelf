@@ -1,20 +1,122 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma
   const shoppingListData = JSON.parse(localStorage.getItem('shoppingList')) || [];
-
   const shoppingListContainer = document.getElementById('shopping-list');
+  const navigationButtons = document.querySelectorAll('.navigation-button');
+  const itemsPerPage = 3;
+  let currentPage = 1;
 
-  if (shoppingListData.length === 0) {
-    // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
-    shoppingListContainer.innerHTML =
-      '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p>';
-  } else {
-    // Wyświetlam każdą książkę z koszyka
-    shoppingListData.forEach(book => {
+  function updateTotalPages() {
+    totalPages = Math.ceil(shoppingListData.length / itemsPerPage);
+  }
+
+  function displayBooks(page) {
+    shoppingListContainer.innerHTML = ''; // Clear previous content
+
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const booksToDisplay = shoppingListData.slice(startIndex, endIndex);
+
+    booksToDisplay.forEach(book => {
       const bookCard = createBookCard(book);
       shoppingListContainer.appendChild(bookCard);
     });
   }
+
+  function createPagination() {
+    const paginationContainer = document.getElementById('pages');
+    paginationContainer.innerHTML = '';
+
+    updateTotalPages();
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.innerText = i;
+      pageButton.classList.add('page-button');
+      pageButton.addEventListener('click', function () {
+        currentPage = i;
+        displayBooks(currentPage);
+        updateButtonStyles();
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+
+    const firstPageBtn = document.getElementById('first-page');
+    firstPageBtn.addEventListener('click', function () {
+      currentPage = 1;
+      displayBooks(currentPage);
+      updateButtonStyles();
+    });
+
+    const lastPageBtn = document.getElementById('last-page');
+    lastPageBtn.addEventListener('click', function () {
+      currentPage = totalPages;
+      displayBooks(currentPage);
+      updateButtonStyles();
+    });
+
+    const prevPageBtn = document.getElementById('previous-page');
+    prevPageBtn.addEventListener('click', function () {
+      if (currentPage > 1) {
+        currentPage--;
+        displayBooks(currentPage);
+        updateButtonStyles();
+      }
+    });
+
+    const nextPageBtn = document.getElementById('next-page');
+    nextPageBtn.addEventListener('click', function () {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayBooks(currentPage);
+        updateButtonStyles();
+      }
+    });
+
+    function updateButtonStyles() {
+      const buttons = document.querySelectorAll('.page-button');
+
+      buttons.forEach((button, index) => {
+        if (index + 1 === currentPage) {
+          button.style.backgroundColor = 'var(--black)';
+          button.style.color = 'var(--white)';
+        } else {
+          button.style.backgroundColor = '';
+          button.style.color = '';
+        }
+      });
+    }
+
+    updateButtonStyles();
+  }
+
+  function displayNavigationButtons(shouldDisplay) {
+    navigationButtons.forEach(button => {
+      button.style.display = shouldDisplay ? 'inline-block' : 'none';
+    });
+  }
+
+  if (shoppingListData.length === 0) {
+    shoppingListContainer.innerHTML =
+      '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p>';
+    displayNavigationButtons(false);
+  } else {
+    displayNavigationButtons(true);
+    displayBooks(currentPage);
+    createPagination();
+  }
+
+  // if (shoppingListData.length === 0) {
+  //   // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
+  //   shoppingListContainer.innerHTML =
+  //     '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p>';
+  // } else {
+  //   // Wyświetlam każdą książkę z koszyka
+  //   shoppingListData.forEach(book => {
+  //     const bookCard = createBookCard(book);
+  //     shoppingListContainer.appendChild(bookCard);
+  //   });
+  // }
 
   // Tworzę kartę dla książki w koszyku
   function createBookCard(book) {
@@ -52,6 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>`;
 
     return card;
+  }
+
+  function removeFromShoppingList(bookId) {
+    const updatedShoppingList = shoppingListData.filter(book => book._id !== bookId);
+    localStorage.setItem('shoppingList', JSON.stringify(updatedShoppingList));
+    location.reload();
   }
 
   //funkcja do usuwania książki z koszyka
