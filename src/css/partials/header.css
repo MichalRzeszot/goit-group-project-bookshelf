@@ -308,3 +308,8 @@ input#switch:checked + .h-switch:after {
 .arrow-item {
   margin-left: 5px;
 }
+@media (min-width: 768px) {
+  .js-toggle-menu {
+    display: none;
+  }
+}
