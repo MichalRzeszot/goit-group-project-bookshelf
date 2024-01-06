@@ -16,19 +16,18 @@ a {
   height: 228px;
   padding-right: 20px;
 }
-/* .all-category::-webkit-scrollbar {
+.all-category::-webkit-scrollbar {
   background-color: transparent;
-  outline: 1px dashed rebeccapurple;
+  width: 8px;
 }
 .all-category::-webkit-scrollbar-track {
   display: block;
-  margin-inline: 20px;
 }
 .all-category::-webkit-scrollbar-thumb {
   width: 8px;
   border-radius: 12px;
-  background-color: hsla(0, 0%, 7%, 0.6);
-} */
+  background-color: var(--scrollbar-color);
+}
 .list-section-item-list {
   font-family: DM Sans;
   color: var(--black1alfa);
