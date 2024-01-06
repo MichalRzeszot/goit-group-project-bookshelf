@@ -57,11 +57,12 @@ const array = [
     img: null,
   },
 ];
+const button = document.querySelector('.slider-button');
 
 const charitiesList = document.querySelector('#charities');
-const list = [];
 let paginationValue = 1;
 function creatingCharityList(value) {
+  let list = [];
   charitiesList.innerHTML = '';
   if (value === 1) {
     let arr = charities.slice(0, 6);
@@ -72,7 +73,7 @@ function creatingCharityList(value) {
       list.push(li);
     });
   } else if (value !== 1) {
-    let arr = charities.slice(4);
+    let arr = charities.slice(3);
     arr.forEach((element, index) => {
       const li = document.createElement('li');
       li.innerHTML = `<a class="charity-container" href="${array[index].url}">${element}</a>`;
@@ -84,9 +85,15 @@ function creatingCharityList(value) {
 }
 creatingCharityList(paginationValue);
 
-const button = document.querySelector('.slider-button');
 button.addEventListener('click', _ev => {
   charitiesList.innerHTML = '';
-  paginationValue++;
-  creatingCharityList(paginationValue);
+  if (paginationValue === 1) {
+    paginationValue++;
+    creatingCharityList(paginationValue);
+    button.style.transform = 'rotate(180deg)';
+  } else if (paginationValue === 2) {
+    paginationValue--;
+    creatingCharityList(paginationValue);
+    button.style.transform = 'rotate(0deg)';
+  }
 });
