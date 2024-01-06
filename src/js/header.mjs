@@ -1,4 +1,4 @@
-(() => {
+() => {
   const mobileMenu = document.querySelector('.js-menu-container');
   const toggleMenuBtn = document.querySelector('.js-toggle-menu');
   const header = document.querySelector('.header-frame');
@@ -61,4 +61,33 @@
   };
 
   openShoppingMenu.addEventListener('click', showShoppingList);
-})();
+};
+
+// Dark-mode switcher
+let darkMode = localStorage.getItem('darkMode');
+const htmlTag = document.querySelector('html');
+const checkbox = document.querySelector('#switch');
+checkbox.addEventListener('change', changeHandler);
+
+console.log(darkMode);
+
+if (darkMode === 'enabled') {
+  enableDarkMode();
+  checkbox.checked = true;
+}
+function changeHandler(ev) {
+  darkMode = localStorage.getItem('darkMode');
+  if (ev.target.checked === true) {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+}
+function enableDarkMode() {
+  htmlTag.classList.add('dark-mode');
+  localStorage.setItem('darkMode', 'enabled');
+}
+function disableDarkMode() {
+  htmlTag.classList.remove('dark-mode');
+  localStorage.setItem('darkMode', null);
+}
