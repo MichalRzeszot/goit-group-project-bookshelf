@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAKxWacqha5AI2uXFjcLX9Oojf7c_Am5bA',
@@ -102,6 +107,7 @@ signInForm.addEventListener('submit', e => {
 
 signUpForm.addEventListener('submit', e => {
   e.preventDefault(); // Prevent form submission
+  const name = document.querySelector('#name-signup').value;
   const email = document.querySelector('#email-signup').value;
   const password = document.querySelector('#password-signup').value;
 
@@ -109,10 +115,15 @@ signUpForm.addEventListener('submit', e => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(newAccountCredential => {
       // New account created successfully
-      const newUser = newAccountCredential.user;
-      // Handle the new user, maybe update UI
-      showSignedUpContent();
-      console.log('Użytkownik został zarejestrowany');
+      return updateProfile(newAccountCredential.user, { displayName: name })
+        .then(() => {
+          // Handle the new user, maybe update UI
+          showSignedUpContent();
+          console.log('Użytkownik został zarejestrowany');
+        })
+        .catch(profileUpdateError => {
+          console.error('Error updating user profile:', profileUpdateError);
+        });
     })
     .catch(signUpError => {
       // Handle sign-up errors separately
