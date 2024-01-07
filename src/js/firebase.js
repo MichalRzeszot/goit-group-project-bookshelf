@@ -153,6 +153,7 @@ logoutButton.addEventListener('click', () => {
   signOut(auth)
     .then(() => {
       console.log('User signed out');
+      location.reload();
     })
     .catch(error => {
       console.error('Error signing out:', error);
