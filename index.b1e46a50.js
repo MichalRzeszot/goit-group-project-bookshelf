@@ -1,0 +1,2 @@
+(()=>{let e={openModalBtn:document.querySelectorAll("[data-modal-open]"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal-firebase]")};function o(){console.log("fssfd"),e.modal.classList.toggle("is-hidden")}console.log(e),e.openModalBtn.forEach(e=>{e.addEventListener("click",o)}),e.closeModalBtn.addEventListener("click",o)})();
+//# sourceMappingURL=index.b1e46a50.js.map
