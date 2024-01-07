@@ -68,20 +68,35 @@ charities.forEach((element, index) => {
   list.push(li);
 });
 
-// for (const element of charities) {
-//   const charity = document.createElement('li');
-//   charity.textContent = element;
-//   charity.classList.add('charity');
-//   list.push(charity);
-// }
-
 charitiesList.append(...list);
 
 // ---------------------------------------
 
 const button = document.querySelector('.slider-button');
 
-// element.addEventListener(
+// button.addEventListener(
 //   'click',
 //   // handler, options
 // );
+
+const swiper = new Swiper('.charities', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.slider-button',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
