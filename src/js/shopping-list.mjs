@@ -1,4 +1,6 @@
-import trashIcon from './../images/icons.svg#icon-trash-03'; 
+import trashIcon from '../images/trash-icon.svg';
+import icons from '../images/icons.svg';
+
 
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma
@@ -141,23 +143,25 @@ document.addEventListener('DOMContentLoaded', function () {
              <div>
                    <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
                    <div class="remove-button-item">
-                   <svg>
-                   <use href="${trashIcon}"></use></svg></div>
-                   <!--<use href="./images/icons.svg#icon-trash-03"></use></svg></div>-->
+                        <img src="${trashIcon}"/> 
+                   </div>
                    </button>
              </div>   
        </div> 
        <div class="book-description">${book.description}</div>
     </div>
  
-   <div class="card-book-footer">
+   <div class="card-book-footer">     
        <div class="book-author">${book.author}</div>
-       <div class="purchase-links">
+       <div class="purchase-links">     
         <a class="amazon-icon" href="${book.amazon_product_url}">
-           <svg>
-           <use href="/src/images/icons.svg#icon-amazon"></use></svg></a>
-        <a href="${book.buy_links[1].url}"><svg width="16" height="16">
-        <use href="/src/images/icons.svg#icon-book-icon"></use></a>
+        <svg><use href="${icons}#icon-amazon"></use></svg>  
+        </a>
+        <a href="${book.buy_links[1].url}">
+        <svg class="book-link-icon">
+        <use href="${icons}#icon-book-icon"></use>
+        </svg>
+        </a>
        </div> 
    </div>
  </div>`;
@@ -181,3 +185,5 @@ document.addEventListener('DOMContentLoaded', function () {
     location.reload();
   };
 });
+
+{/*<use href="/src/images/icons.svg#icon-trash-03"></use></svg></div>   */}

@@ -20,7 +20,7 @@ h1 {
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: 20px !important;
-} 
+}
 
 .sl-span {
   color: var(--violet);
@@ -35,11 +35,6 @@ h1 {
   font-weight: 400;
   line-height: 128.571%;
   letter-spacing: -0.28px;
-}
-
-a {
-  display: block;
-  margin-bottom: 20px;
 }
 
 .book-card-container {
@@ -100,7 +95,7 @@ a {
 
 .book-link-icon:hover {
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
-} 
+}
 
 .image-container {
   margin-right: 14px;
@@ -133,12 +128,12 @@ a {
 
 .book-description {
   display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    /* ukrywa wszystko to, co wychodzi poza kontener */
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  /* ukrywa wszystko to, co wychodzi poza kontener */
   overflow: hidden;
-     /* skraca zbyt długie ciągi znaków, umieszczając na końcu (tylko, gdy potrzeba) trzy kropki */
-  text-overflow: ellipsis; 
+  /* skraca zbyt długie ciągi znaków, umieszczając na końcu (tylko, gdy potrzeba) trzy kropki */
+  text-overflow: ellipsis;
   color: black;
   font-size: 14px;
   font-weight: 400;
@@ -153,25 +148,24 @@ a {
   font-weight: 400;
   line-height: 1.17;
   letter-spacing: -0.48px;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .purchase-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
   align-self: flex-end; /* Dodane, aby umieścić linki zakupowe w prawym dolnym rogu */
 }
 
-.purchase-links a {
-  display: block;
-  margin-bottom: 0;
+.amazon-icon svg {
+  width: 32px;
+  height: 11px;
 }
 
-.amazon-icon {
-  width:32px;
-  height:11px;
-  fill: var(--gray);
+.book-link-icon {
+  width: 18px;
+  height: 18px;
 }
 
 #shopping-list {
@@ -198,16 +192,10 @@ a {
   background-color: var(--yellow);
 }
 
-.remove-button-item {
+.remove-button-item svg {
   width: 16px;
   height: 16px;
   fill: var(--white);
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 /* @media (min-width: 480px) {
@@ -236,15 +224,24 @@ a {
     height: 34px;
   }
 
-  .remove-button-item {
+  .remove-button-item svg {
     width: 18px;
     height: 18px;
   }
 
-  .amazon-icon {
-    width:48px;
-    height:15px;
-     }
+  .purchase-links {
+    gap: 16px;
+  }
+
+  .amazon-icon svg {
+    width: 48px;
+    height: 15px;
+  }
+
+  .book-link-icon {
+    width: 28px;
+    height: 278px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -271,14 +268,23 @@ a {
     height: 18px;
   }
 
-  .amazon-icon {
-    width:48px;
-    height:15px;
-     }
+  .purchase-links {
+    gap: 16px;
+  }
+
+  .amazon-icon svg {
+    width: 48px;
+    height: 15px;
+  }
+
+  .book-link-icon {
+    width: 28px;
+    height: 278px;
+  }
 
   .book-author {
-      font-size: 14px;
-}
+    font-size: 14px;
+  }
 }
 
 .pagination {
