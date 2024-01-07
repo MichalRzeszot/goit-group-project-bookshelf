@@ -1,3 +1,7 @@
+import trashIcon from '../images/trash-icon.svg';
+import icons from '../images/icons.svg';
+
+
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma
   const shoppingListData = JSON.parse(localStorage.getItem('shoppingList')) || [];
@@ -106,17 +110,17 @@ document.addEventListener('DOMContentLoaded', function () {
     createPagination();
   }
 
-  // if (shoppingListData.length === 0) {
-  //   // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
-  //   shoppingListContainer.innerHTML =
-  //     '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p>';
-  // } else {
-  //   // Wyświetlam każdą książkę z koszyka
-  //   shoppingListData.forEach(book => {
-  //     const bookCard = createBookCard(book);
-  //     shoppingListContainer.appendChild(bookCard);
-  //   });
-  // }
+  if (shoppingListData.length === 0) {
+    // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
+    shoppingListContainer.innerHTML =
+      '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="../images/shopping-list-books-empty.jpg" srcset="../images/shopping-list-books-empty-2x.jpg 2x" alt="pile of books"/>';
+  } else {
+    // Wyświetlam każdą książkę z koszyka
+    shoppingListData.forEach(book => {
+      const bookCard = createBookCard(book);
+      shoppingListContainer.appendChild(bookCard);
+    });
+  }
 
   // Tworzę kartę dla książki w koszyku
   function createBookCard(book) {
@@ -125,34 +129,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dodaję wymagane informacje o książce
     card.innerHTML = `
-        <div class="image-container">
-         <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
-        </div>
+    <div>
+    <img class="book-image" src="${book.book_image}" alt="${book.title} Cover"/>
+   </div>
 
-      <div class="text-container">
-          <div class="book-card-header">
-              <div class="card-title-container">
+   <div class="text-container">
+   <div class="card-book-data-container">
+       <div class="book-card-header">
+             <div class="card-title-container">
                     <p class="book-title">${book.title}</p>
                     <p class="book-category">${book.list_name}</p>
-              </div>
+             </div>
              <div>
-                    <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
-                    <svg class="remove-button-item"><use href="./images/icons.svg#icon-trash-03"></use></svg>
-                    </button>
-              </div>
-          </div>
-
-        <p class="book-description">${book.description}</p>
-
-          <div class="book-author">${book.author}</div>
-          
-          <div class="purchase-links">
-                <a href="${book.buy_links[0].url}">
-                    LINK
-                </a>
-          </div> 
-      </div>`;
-
+                   <button class="remove-button" onclick="removeFromShoppingList('${book._id}')">
+                   <div class="remove-button-item">
+                        <img src="${trashIcon}"/> 
+                   </div>
+                   </button>
+             </div>   
+       </div> 
+       <div class="book-description">${book.description}</div>
+    </div>
+ 
+   <div class="card-book-footer">     
+       <div class="book-author">${book.author}</div>
+       <div class="purchase-links">     
+        <a class="amazon-icon" href="${book.amazon_product_url}">
+        <svg><use href="${icons}#icon-amazon"></use></svg>  
+        </a>
+        <a href="${book.buy_links[1].url}">
+        <svg class="book-link-icon">
+        <use href="${icons}#icon-book-icon"></use>
+        </svg>
+        </a>
+       </div> 
+   </div>
+ </div>`;
     return card;
   }
 
@@ -173,3 +185,5 @@ document.addEventListener('DOMContentLoaded', function () {
     location.reload();
   };
 });
+
+{/*<use href="/src/images/icons.svg#icon-trash-03"></use></svg></div>   */}

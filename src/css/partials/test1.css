@@ -1,0 +1,19 @@
+@media (min-width: 768px) {
+  .cont {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  .cont {
+    max-width: 356px;
+    flex-direction: column;
+  }
+}

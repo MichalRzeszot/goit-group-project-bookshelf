@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -149,5 +150,18 @@ signUpForm.addEventListener('submit', e => {
 
       console.error('Sign-up error:', signUpErrorCode, signUpErrorMessage);
       // Display error message or handle as needed for sign-up
+    });
+});
+
+// Logging Out
+const logoutButton = document.querySelector('.log-out-btn');
+
+logoutButton.addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      console.log('User signed out');
+    })
+    .catch(error => {
+      console.error('Error signing out:', error);
     });
 });

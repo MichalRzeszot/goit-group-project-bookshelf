@@ -2,33 +2,36 @@
 a {
   color: inherit;
 }
-
+.bookcatalog-container {
+  width: 375px;
+  margin: 0 auto;
+  padding: 0;
+  outline: 1px dashed red;
+}
 .all-category {
   background-color: var(--project-background);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 40px;
   gap: 24px;
-  margin-inline: 20px;
-  margin-block: 40px;
   width: 307px;
   height: 228px;
   padding-right: 20px;
 }
-/* .all-category::-webkit-scrollbar {
+.all-category::-webkit-scrollbar {
   background-color: transparent;
-  outline: 1px dashed rebeccapurple;
+  width: 8px;
 }
 .all-category::-webkit-scrollbar-track {
   display: block;
-  margin-inline: 20px;
 }
 .all-category::-webkit-scrollbar-thumb {
   width: 8px;
   border-radius: 12px;
-  background-color: hsla(0, 0%, 7%, 0.6);
-} */
+  background-color: var(--scrollbar-color);
+}
 .list-section-item-list {
   font-family: DM Sans;
   color: var(--black1alfa);
@@ -58,14 +61,20 @@ a {
 }
 /* Sekcja media query */
 @media (min-width: 768px) {
+  .bookcatalog-container {
+    width: 309px;
+  }
   .all-category {
     gap: 32px;
-    width: 309px;
+    width: auto;
     height: 472px;
   }
 }
 
 @media (min-width: 1200px) {
+  .bookcatalog-container {
+    width: 356px;
+  }
   .all-category {
     gap: 32px;
     width: 328px;
