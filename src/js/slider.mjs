@@ -57,10 +57,12 @@ const array = [
     img: null,
   },
 ];
-const button = document.querySelector('.slider-button');
 
+const button = document.querySelector('.slider-button');
 const charitiesList = document.querySelector('#charities');
+
 let paginationValue = 1;
+
 function creatingCharityList(value) {
   let list = [];
   charitiesList.innerHTML = '';
@@ -83,7 +85,10 @@ function creatingCharityList(value) {
   }
   charitiesList.append(...list);
 }
+
 creatingCharityList(paginationValue);
+
+button.style.cursor = 'pointer';
 
 button.addEventListener('click', _ev => {
   charitiesList.innerHTML = '';
