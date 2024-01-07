@@ -3,8 +3,6 @@ import icons from '../images/icons.svg';
 import booksIcon from '../images/pileofbooks.jpg';
 import booksIcon2x from '../images/pileofbooks2x.jpg';
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma
   const shoppingListData = JSON.parse(localStorage.getItem('shoppingList')) || [];
@@ -12,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const navigationButtons = document.querySelectorAll('.navigation-button');
   const itemsPerPage = 3;
   let currentPage = 1;
+  let totalPages;
 
   function updateTotalPages() {
     totalPages = Math.ceil(shoppingListData.length / itemsPerPage);
@@ -104,8 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (shoppingListData.length === 0) {
-    shoppingListContainer.innerHTML =
-      `<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="${booksIcon}" srcset="${booksIcon} 2x" alt="pile of books"/>`;
+    shoppingListContainer.innerHTML = `<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="${booksIcon}" srcset="${booksIcon} 2x" alt="pile of books"/>`;
     displayNavigationButtons(false);
   } else {
     displayNavigationButtons(true);
@@ -189,4 +187,6 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 });
 
-{/*<use href="/src/images/icons.svg#icon-trash-03"></use></svg></div>   */}
+{
+  /*<use href="/src/images/icons.svg#icon-trash-03"></use></svg></div>   */
+}
