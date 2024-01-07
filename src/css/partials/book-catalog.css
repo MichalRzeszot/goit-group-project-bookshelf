@@ -2,7 +2,12 @@
 a {
   color: inherit;
 }
-
+.bookcatalog-container {
+  width: 375px;
+  margin: 0 auto;
+  padding: 0;
+  outline: 1px dashed red;
+}
 .all-category {
   background-color: var(--project-background);
   overflow-y: scroll;
@@ -56,6 +61,9 @@ a {
 }
 /* Sekcja media query */
 @media (min-width: 768px) {
+  .bookcatalog-container {
+    width: 309px;
+  }
   .all-category {
     gap: 32px;
     width: auto;
@@ -64,6 +72,9 @@ a {
 }
 
 @media (min-width: 1200px) {
+  .bookcatalog-container {
+    width: 356px;
+  }
   .all-category {
     gap: 32px;
     width: 328px;
