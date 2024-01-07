@@ -6,7 +6,8 @@ a {
   width: 375px;
   margin: 0 auto;
   padding: 0;
-  outline: 1px dashed red;
+  /*outline: 1px dashed red;*/
+  height: auto;
 }
 .all-category {
   background-color: var(--project-background);
@@ -74,6 +75,7 @@ a {
 @media (min-width: 1200px) {
   .bookcatalog-container {
     width: 356px;
+    margin-bottom: 86px;
   }
   .all-category {
     gap: 32px;
