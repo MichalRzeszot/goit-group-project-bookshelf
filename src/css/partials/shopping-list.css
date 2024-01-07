@@ -7,6 +7,10 @@
   margin-right: auto;
 }
 
+.container.sl-container {
+  margin-top: 20px;
+}
+
 .sl-wrapper {
   display: flex;
 }
@@ -42,8 +46,8 @@ h1 {
 
 .image-empty-list {
   width: 265px;
-height: 198px;
-display: block;
+  height: 198px;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
