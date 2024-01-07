@@ -1,5 +1,8 @@
 import trashIcon from '../images/trash-icon.svg';
 import icons from '../images/icons.svg';
+import booksIcon from '../images/pileofbooks.jpg';
+import booksIcon2x from '../images/pileofbooks2x.jpg';
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (shoppingListData.length === 0) {
     shoppingListContainer.innerHTML =
-      '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p>';
+      `<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="${booksIcon}" srcset="${booksIcon} 2x" alt="pile of books"/>`;
     displayNavigationButtons(false);
   } else {
     displayNavigationButtons(true);
@@ -110,17 +113,17 @@ document.addEventListener('DOMContentLoaded', function () {
     createPagination();
   }
 
-  if (shoppingListData.length === 0) {
-    // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
-    shoppingListContainer.innerHTML =
-      '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="../images/shopping-list-books-empty.jpg" srcset="../images/shopping-list-books-empty-2x.jpg 2x" alt="pile of books"/>';
-  } else {
-    // Wyświetlam każdą książkę z koszyka
-    shoppingListData.forEach(book => {
-      const bookCard = createBookCard(book);
-      shoppingListContainer.appendChild(bookCard);
-    });
-  }
+  // if (shoppingListData.length === 0) {
+  //   // Wyświetlam komunikat w przypadku, jeśli koszyk jest pusty
+  //   shoppingListContainer.innerHTML =
+  //     '<p class="sl-paragraph">This page is empty, add some books and proceed to order.</p><img class="image-empty-list" src="../images/shopping-list-books-empty.jpg" srcset="../images/shopping-list-books-empty-2x.jpg 2x" alt="pile of books"/>';
+  // } else {
+  //   // Wyświetlam każdą książkę z koszyka
+  //   shoppingListData.forEach(book => {
+  //     const bookCard = createBookCard(book);
+  //     shoppingListContainer.appendChild(bookCard);
+  //   });
+  // }
 
   // Tworzę kartę dla książki w koszyku
   function createBookCard(book) {
