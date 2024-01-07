@@ -54,9 +54,15 @@ showSignInLinkModalBottom.addEventListener('click', e => {
   showSignInForm();
 });
 
+const userLoggedIn = () => {
+  document.querySelector('body').classList.add('user-logged-in');
+  document.querySelector('.user-name-change').textContent = auth.currentUser.displayName;
+};
+
 const showSignedInContent = () => {
   signInForm.style.display = 'none';
   signedInContent.style.display = 'block';
+  userLoggedIn();
 };
 
 const showSignInForm = () => {
@@ -68,6 +74,7 @@ const showSignInForm = () => {
 const showSignedUpContent = () => {
   signUpForm.style.display = 'none';
   signedUpContent.style.display = 'block';
+  userLoggedIn();
 };
 
 const showSignUpForm = () => {
