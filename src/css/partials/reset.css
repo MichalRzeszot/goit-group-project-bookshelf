@@ -134,8 +134,8 @@ body {
 .container {
   width: 375px;
   margin: 0 auto;
-  padding: 0;
-  outline: 1px dashed red;
+  padding: 24px;
+  /*outline: 1px dashed red;*/
 }
 
 @media (min-width: 768px) {
