@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  setPersistence,
+  browserLocalPersistence,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -29,6 +31,7 @@ const showSignUpLinkModalTop = document.querySelector('#show-sign-up-modal-top')
 const showSignInLinkModalTop = document.querySelector('#show-sign-in-modal-top');
 const showSignUpLinkModalBottom = document.querySelector('#show-sign-up-modal-bottom');
 const showSignInLinkModalBottom = document.querySelector('#show-sign-in-modal-bottom');
+const logoutButton = document.querySelector('.log-out-btn');
 
 // Show sign-up form by default
 signUpForm.style.display = 'block';
@@ -55,15 +58,9 @@ showSignInLinkModalBottom.addEventListener('click', e => {
   showSignInForm();
 });
 
-const userLoggedIn = () => {
-  document.querySelector('body').classList.add('user-logged-in');
-  document.querySelector('.user-name-change').textContent = auth.currentUser.displayName;
-};
-
 const showSignedInContent = () => {
   signInForm.style.display = 'none';
   signedInContent.style.display = 'block';
-  userLoggedIn();
 };
 
 const showSignInForm = () => {
@@ -75,7 +72,6 @@ const showSignInForm = () => {
 const showSignedUpContent = () => {
   signUpForm.style.display = 'none';
   signedUpContent.style.display = 'block';
-  userLoggedIn();
 };
 
 const showSignUpForm = () => {
@@ -84,86 +80,89 @@ const showSignUpForm = () => {
   signInForm.style.display = 'none';
 };
 
-signInForm.addEventListener('submit', e => {
-  e.preventDefault(); // Prevent form submission
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    signInForm.addEventListener('submit', e => {
+      e.preventDefault(); // Prevent form submission
+      const email = document.querySelector('#email').value;
+      const password = document.querySelector('#password').value;
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      // User signed in successfully
-      const user = userCredential.user;
-      // Handle the signed-in user, update UI, etc.
-      showSignedInContent();
-    })
-    .catch(signInError => {
-      const signInErrorCode = signInError.code;
-      const signInErrorMessage = signInError.message;
-
-      let form = document.querySelector('#sign-in-form');
-      if (signInErrorCode === 'auth/invalid-credential') {
-        form.innerHTML = `<h1>Error: Invalid password</h1>`;
-      } else if (signInErrorCode === 'auth/user-not-found') {
-        form.innerHTML = `<h1>Error: User not registered</h1>`;
-      } else {
-        form.innerHTML = `<h1>Error: ${signInErrorCode} - ${signInErrorMessage}</h1>`;
-      }
-      console.error('Sign-in error:', signInErrorCode, signInErrorMessage);
-      // Display error message or handle as needed for sign-in
-    });
-});
-
-signUpForm.addEventListener('submit', e => {
-  e.preventDefault(); // Prevent form submission
-  const name = document.querySelector('#name-signup').value;
-  const email = document.querySelector('#email-signup').value;
-  const password = document.querySelector('#password-signup').value;
-
-  // If user doesn't exist, try creating a new user
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(newAccountCredential => {
-      // New account created successfully
-      return updateProfile(newAccountCredential.user, { displayName: name })
-        .then(() => {
-          // Handle the new user, maybe update UI
-          showSignedUpContent();
-          console.log('Użytkownik został zarejestrowany');
+      signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          // User signed in successfully
+          const user = userCredential.user;
+          // Handle the signed-in user, update UI, etc.
+          showSignedInContent();
         })
-        .catch(profileUpdateError => {
-          console.error('Error updating user profile:', profileUpdateError);
+        .catch(signInError => {
+          const signInErrorCode = signInError.code;
+          const signInErrorMessage = signInError.message;
+
+          let form = document.querySelector('#sign-in-form');
+          if (signInErrorCode === 'auth/invalid-credential') {
+            form.innerHTML = `<h1>Error: Invalid password</h1>`;
+          } else if (signInErrorCode === 'auth/user-not-found') {
+            form.innerHTML = `<h1>Error: User not registered</h1>`;
+          } else {
+            form.innerHTML = `<h1>Error: ${signInErrorCode} - ${signInErrorMessage}</h1>`;
+          }
+          console.error('Sign-in error:', signInErrorCode, signInErrorMessage);
+          // Display error message or handle as needed for sign-in
         });
-    })
-    .catch(signUpError => {
-      // Handle sign-up errors separately
-      const signUpErrorCode = signUpError.code;
-      const signUpErrorMessage = signUpError.message;
-
-      let form = document.querySelector('#sign-up-form');
-
-      if (signUpErrorCode === 'auth/email-already-in-use') {
-        form.innerHTML = `<h1>Użytkownik jest już zarejestrowany. Zaloguj się!</h1>`;
-      } else if (signUpErrorCode === 'auth/weak-password') {
-        form.innerHTML = `<h1>Hasło musi zawierać co najmniej 6 znaków!</h1>`;
-      } else {
-        form.innerHTML = `<h1>Error: ${signUpErrorCode} - ${signUpErrorMessage}</h1>`;
-      }
-
-      console.error('Sign-up error:', signUpErrorCode, signUpErrorMessage);
-      // Display error message or handle as needed for sign-up
     });
-});
 
-// Logging Out
-const logoutButton = document.querySelector('.log-out-btn');
+    signUpForm.addEventListener('submit', e => {
+      e.preventDefault(); // Prevent form submission
+      const name = document.querySelector('#name-signup').value;
+      const email = document.querySelector('#email-signup').value;
+      const password = document.querySelector('#password-signup').value;
 
-logoutButton.addEventListener('click', () => {
-  signOut(auth)
-    .then(() => {
-      console.log('User signed out');
-      // location.reload();
-      window.location.href = window.location.href;
-    })
-    .catch(error => {
-      console.error('Error signing out:', error);
+      // If user doesn't exist, try creating a new user
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(newAccountCredential => {
+          // New account created successfully
+          return updateProfile(newAccountCredential.user, { displayName: name })
+            .then(() => {
+              // Handle the new user, maybe update UI
+              showSignedUpContent();
+              console.log('Użytkownik został zarejestrowany');
+            })
+            .catch(profileUpdateError => {
+              console.error('Error updating user profile:', profileUpdateError);
+            });
+        })
+        .catch(signUpError => {
+          // Handle sign-up errors separately
+          const signUpErrorCode = signUpError.code;
+          const signUpErrorMessage = signUpError.message;
+
+          let form = document.querySelector('#sign-up-form');
+
+          if (signUpErrorCode === 'auth/email-already-in-use') {
+            form.innerHTML = `<h1>Użytkownik jest już zarejestrowany. Zaloguj się!</h1>`;
+          } else if (signUpErrorCode === 'auth/weak-password') {
+            form.innerHTML = `<h1>Hasło musi zawierać co najmniej 6 znaków!</h1>`;
+          } else {
+            form.innerHTML = `<h1>Error: ${signUpErrorCode} - ${signUpErrorMessage}</h1>`;
+          }
+
+          console.error('Sign-up error:', signUpErrorCode, signUpErrorMessage);
+          // Display error message or handle as needed for sign-up
+        });
     });
-});
+
+    logoutButton.addEventListener('click', () => {
+      signOut(auth)
+        .then(() => {
+          console.log('User signed out');
+          // location.reload();
+          window.location.href = window.location.href;
+        })
+        .catch(error => {
+          console.error('Error signing out:', error);
+        });
+    });
+  })
+  .catch(error => {
+    console.error('Error setting persistence:', error);
+  });
