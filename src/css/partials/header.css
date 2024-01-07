@@ -140,6 +140,7 @@ input#switch:checked + .h-switch:after {
   stroke: #111;
   margin-left: 0px;
   cursor: pointer;
+  padding-top: 10px;
 }
 .close-btn:hover,
 .close-btn:focus {
@@ -173,6 +174,9 @@ input#switch:checked + .h-switch:after {
   visibility: hidden;
   transition: 300ms;
   padding-top: 64px;
+}
+.menu-content {
+  margin-left: 20px;
 }
 .bg-books {
   background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4f2ee8 18.03%, #fff 100%),
@@ -217,14 +221,6 @@ input#switch:checked + .h-switch:after {
   border: none;
   height: 42px;
 }
-.button-home:hover,
-.button-shopping:hover {
-  border-radius: 36px;
-  background: var(--yellow);
-  color: var(--black);
-  display: flex;
-  align-items: flex-start;
-}
 
 .button-shopping:hover .bag-item {
   stroke: var(--black);
@@ -267,6 +263,19 @@ input#switch:checked + .h-switch:after {
     text-align: center;
   }
 }
+
+.button-home,
+.button-shopping {
+  border-radius: 36px;
+  display: flex;
+  align-items: flex-start;
+}
+.button-home:hover,
+.button-shopping:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
 .button-home-header,
 .button-shopping-header {
   border-radius: 36px;
@@ -287,14 +296,13 @@ input#switch:checked + .h-switch:after {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 20px;
   letter-spacing: -0.56px;
 }
 .shopping-item {
   width: 150px;
   height: 20px;
   margin: 17px auto auto 129px;
-  /* vertical-align: middle; */
 }
 .shopping-text {
   font-size: 14px;
@@ -322,7 +330,6 @@ input#switch:checked + .h-switch:after {
   height: 48px;
   flex-shrink: 0;
   margin-top: 40px;
-  margin-left: 20px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;

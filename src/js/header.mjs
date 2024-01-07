@@ -1,4 +1,4 @@
-import { getAuth } from 'firebase/auth';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
 
 const mobileMenu = document.querySelector('.js-menu-container');
 const toggleMenuBtn = document.querySelector('.js-toggle-menu');
@@ -14,7 +14,16 @@ const userMenuContent = document.querySelector('.user-menu');
 const logOutBtn = document.querySelector('.log-out-btn');
 
 const auth = getAuth();
-// auth.currentUser.displayName
+
+// funkcja uruchamiana, gdy wykryto zalogowanego uytkownika
+function userArleadyLoggedIn() {
+  console.log('userArleadyLoggedIn');
+  document.querySelector('body').classList.add('user-logged-in');
+  // zmiana treści przycisku na nazwę usera
+  document.querySelector('.user-name-change').textContent = auth.currentUser.displayName;
+  // przęłączenie menu na menu usera
+  userMenu();
+}
 
 function closeHamburgerMenu() {
   header.classList.remove('menu-opened');
@@ -30,7 +39,7 @@ function openHamburgerMenu() {
   toggleMenuBtn.classList.add('close-btn');
 
   if (auth.currentUser) {
-    userMenu();
+    userArleadyLoggedIn();
   }
 }
 
@@ -118,3 +127,18 @@ function disableDarkMode() {
   htmlTag.classList.remove('dark-mode');
   localStorage.setItem('darkMode', null);
 }
+
+// tworzymy trwałą sesję uywając local storage jako miejsca przechowywania (browserLocalPersistence)
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    // czy user zalogowany?
+    if (auth.currentUser) {
+      console.log(auth.currentUser);
+      userArleadyLoggedIn();
+    } else {
+      // uytkownik nie zalogowany
+    }
+  })
+  .catch(error => {
+    console.error('Error setting persistence:', error);
+  });
