@@ -59,6 +59,7 @@ a {
   right: 20px;
   cursor: pointer;
   display: none;
+  z-index: 100;
 }
 /* Sekcja media query */
 @media (min-width: 768px) {
