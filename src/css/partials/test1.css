@@ -1,8 +1,11 @@
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .cont {
     display: flex;
     justify-content: flex-start;
     max-width: 800px;
+  }
+  .bookcatalog-container {
+    margin-bottom: 86px;
   }
 }
 
