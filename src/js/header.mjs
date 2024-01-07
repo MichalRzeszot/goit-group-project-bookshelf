@@ -4,6 +4,8 @@ const mobileMenu = document.querySelector('.js-menu-container');
 const toggleMenuBtn = document.querySelector('.js-toggle-menu');
 const header = document.querySelector('.header-frame');
 const openShoppingMenu = document.querySelector('.shopping-item');
+const signUpBtnHeader = document.querySelector('sign-up-btn-header');
+const homeHeader = document.querySelector('home-item-header');
 const signUpBtn = document.querySelector('.sign-up-btn');
 const signUpForm = document.querySelector('.sign-up-form');
 const signUpFormBtn = document.querySelector('#sign-up-form .modal__send');
@@ -52,12 +54,15 @@ const toggleMenu = () => {
 
 toggleMenuBtn.addEventListener('click', toggleMenu);
 
+// const signUpClickFirst = () => {
+//   signUpForm.classList.remove('hidden');
+// };
+// signUpBtnHeader.addEventListener('click', signUpClickFirst);
+
 const signUpClick = () => {
   signUpBtn.classList.add('hidden');
   signUpForm.classList.remove('hidden');
-  // header.classList.add('hidden');
   mobileMenu.classList.remove('bg-books');
-  // mobileMenu.classList.add('bg-form');
   mobileMenu.classList.remove('is-open');
 
   closeHamburgerMenu();
