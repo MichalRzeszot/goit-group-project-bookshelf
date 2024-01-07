@@ -4,13 +4,51 @@
       <svg width="24" height="24">
         <use href="./images/icons.svg#icon-logo"></use>
       </svg>
-      <svg width="77" height="24">
+      <svg class="bookshelf-icon" width="77" height="24">
         <use href="./images/icons.svg#icon-Bookshelf"></use>
       </svg>
     </div>
+
+    <div class="home-item-header">
+      <div class="button-home-header">
+        <a href="./index.html"><span class="home-text">HOME</span></a>
+      </div>
+
+      <div>
+        <a class="button-shopping-header" href="./shopping-list.html">
+          <span class="shopping-text">SHOPPING LIST</span>
+          <svg
+            class="bag-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#bag"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
     <div class="nav-part">
-      <input type="checkbox" id="switch" />
-      <label for="switch" class="h-switch">Toggle</label>
+      <div class="switcher">
+        <input type="checkbox" id="switch" class="hidden" />
+        <label for="switch" class="h-switch">Toggle</label>
+      </div>
+
+      <div class="sign-up-button-header">
+        <button class="sign-up-btn-header" data-modal-open>
+          <span class="sign-text user-name-change">Sign up</span>
+          <svg
+            class="arrow-item"
+            width="20px"
+            height="20px"
+            viewBox="0 0 28 28"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="./images/icons.svg#arrow"></use>
+          </svg>
+        </button>
+      </div>
 
       <button
         class="hamburger-button js-toggle-menu"

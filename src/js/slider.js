@@ -5,9 +5,9 @@ const charities = [
   `<p>04</p><img class="slider-img-04" src="${require('../images/slider-img/04.png')}" />`,
   `<p>05</p><img class="slider-img-05" src="${require('../images/slider-img/05.png')}" />`,
   `<p>06</p><img class="slider-img-06" src="${require('../images/slider-img/06.png')}" />`,
-  // `<p>07</p><img class="slider-img-07" src="${require('../images/slider-img/07.png')}" />`,
-  // `<p>08</p><img class="slider-img-08" src="${require('../images/slider-img/08.png')}" />`,
-  // `<p>09</p><img class="slider-img-09" src="${require('../images/slider-img/09.png')}" />`,
+  `<p>07</p><img class="slider-img-07" src="${require('../images/slider-img/07.png')}" />`,
+  `<p>08</p><img class="slider-img-08" src="${require('../images/slider-img/08.png')}" />`,
+  `<p>09</p><img class="slider-img-09" src="${require('../images/slider-img/09.png')}" />`,
 ];
 
 const array = [
@@ -58,30 +58,47 @@ const array = [
   },
 ];
 
-const charitiesList = document.querySelector('#charities');
-const list = [];
-
-charities.forEach((element, index) => {
-  const li = document.createElement('li');
-  li.innerHTML = `<a class="charity-container" href="${array[index].url}">${element}</a>`;
-  li.classList.add('charity');
-  list.push(li);
-});
-
-// for (const element of charities) {
-//   const charity = document.createElement('li');
-//   charity.textContent = element;
-//   charity.classList.add('charity');
-//   list.push(charity);
-// }
-
-charitiesList.append(...list);
-
-// ---------------------------------------
-
 const button = document.querySelector('.slider-button');
+const charitiesList = document.querySelector('#charities');
 
-// element.addEventListener(
-//   'click',
-//   // handler, options
-// );
+let paginationValue = 1;
+
+function creatingCharityList(value) {
+  let list = [];
+  charitiesList.innerHTML = '';
+  if (value === 1) {
+    let arr = charities.slice(0, 6);
+    arr.forEach((element, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a class="charity-container" href="${array[index].url}">${element}</a>`;
+      li.classList.add('charity');
+      list.push(li);
+    });
+  } else if (value !== 1) {
+    let arr = charities.slice(3);
+    arr.forEach((element, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<a class="charity-container" href="${array[index].url}">${element}</a>`;
+      li.classList.add('charity');
+      list.push(li);
+    });
+  }
+  charitiesList.append(...list);
+}
+
+creatingCharityList(paginationValue);
+
+button.style.cursor = 'pointer';
+
+button.addEventListener('click', _ev => {
+  charitiesList.innerHTML = '';
+  if (paginationValue === 1) {
+    paginationValue++;
+    creatingCharityList(paginationValue);
+    button.style.transform = 'rotate(180deg)';
+  } else if (paginationValue === 2) {
+    paginationValue--;
+    creatingCharityList(paginationValue);
+    button.style.transform = 'rotate(0deg)';
+  }
+});

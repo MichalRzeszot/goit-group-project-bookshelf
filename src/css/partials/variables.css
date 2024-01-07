@@ -8,6 +8,7 @@
   --white: hsl(0, 0%, 100%);
   --project-background: hsl(0, 0%, 96%);
   --gray: hsl(0, 3%, 70%);
+  --scrollbar-color: hsla(0, 0%, 88%, 1);
   --violet-gradient: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
     hsl(251, 80%, 55%) 18.03%,
@@ -21,4 +22,5 @@
   --violet2: hsl(47, 80%, 59%);
   --white: hsl(0, 0%, 100%);
   --project-background: hsl(240, 6%, 13%);
+  --scrollbar-color: hsla(0, 0%, 7%, 0.6);
 }

@@ -34,7 +34,8 @@ const addToShoppingListButton = document.querySelector('#book-modal-btn');
 let selectedBook = null;
 
 const handleBookClick = async e => {
-  if (e.target.classList.contains('bl-container')) return;
+  if (e.target.classList.contains('bl-container') || e.target.classList.contains('bl-see-more-btn'))
+    return;
 
   const id = e.target.closest('[id]').id;
 

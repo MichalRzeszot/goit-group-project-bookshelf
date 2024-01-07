@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -54,9 +55,15 @@ showSignInLinkModalBottom.addEventListener('click', e => {
   showSignInForm();
 });
 
+const userLoggedIn = () => {
+  document.querySelector('body').classList.add('user-logged-in');
+  document.querySelector('.user-name-change').textContent = auth.currentUser.displayName;
+};
+
 const showSignedInContent = () => {
   signInForm.style.display = 'none';
   signedInContent.style.display = 'block';
+  userLoggedIn();
 };
 
 const showSignInForm = () => {
@@ -68,6 +75,7 @@ const showSignInForm = () => {
 const showSignedUpContent = () => {
   signUpForm.style.display = 'none';
   signedUpContent.style.display = 'block';
+  userLoggedIn();
 };
 
 const showSignUpForm = () => {
@@ -142,5 +150,20 @@ signUpForm.addEventListener('submit', e => {
 
       console.error('Sign-up error:', signUpErrorCode, signUpErrorMessage);
       // Display error message or handle as needed for sign-up
+    });
+});
+
+// Logging Out
+const logoutButton = document.querySelector('.log-out-btn');
+
+logoutButton.addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      console.log('User signed out');
+      // location.reload();
+      window.location.href = window.location.href;
+    })
+    .catch(error => {
+      console.error('Error signing out:', error);
     });
 });
