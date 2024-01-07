@@ -9,9 +9,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 40px;
   gap: 24px;
-  margin-inline: 20px;
-  margin-block: 40px;
   width: 307px;
   height: 228px;
   padding-right: 20px;
@@ -59,7 +58,7 @@ a {
 @media (min-width: 768px) {
   .all-category {
     gap: 32px;
-    width: 309px;
+    width: auto;
     height: 472px;
   }
 }

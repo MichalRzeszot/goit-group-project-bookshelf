@@ -132,29 +132,21 @@ body {
 }
 
 .container {
-  width: 320px;
+  width: 375px;
   margin: 0 auto;
-  padding: 0 20px;
-  /* outline: var(--outline-1); */
-}
-
-@media (min-width: 480px) {
-  .container {
-    width: 428px;
-    /* outline: var(--outline-1); */
-  }
+  padding: 0;
+  outline: 1px dashed red;
 }
 
 @media (min-width: 768px) {
   .container {
     width: 768px;
-    padding: 0 16px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    width: 1158px;
+    width: 1440px;
     /* outline: var(--outline-1); */
   }
 }
