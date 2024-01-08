@@ -45,6 +45,7 @@ h1 {
 }
 
 .image-empty-list {
+  background-color: var(--project-background);
   width: 265px;
   height: 198px;
   display: block;
