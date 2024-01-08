@@ -70,7 +70,7 @@ function creatingCharityList(value) {
     let arr = charities.slice(0, 6);
     arr.forEach((element, index) => {
       const li = document.createElement('li');
-      li.innerHTML = `<a class="charity-container" href="${array[index].url}">${element}</a>`;
+      li.innerHTML = `<a target="_blank" class="charity-container" href="${array[index].url}">${element}</a>`;
       li.classList.add('charity');
       list.push(li);
     });
