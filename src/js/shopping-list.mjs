@@ -1,7 +1,7 @@
 import trashIcon from '../images/trash-icon.svg';
 import icons from '../images/icons.svg';
-import booksIcon from '../images/pileofbooks.jpg';
-import booksIcon2x from '../images/pileofbooks2x.jpg';
+import booksIcon from '../images/pileofbooks.png';
+import booksIcon2x from '../images/pileofbooks2x.png';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Sprawdzam, czy localStorage zawiera dane o książkach w koszyku lub zwracam pustą tablicę, jeśli w local storage nic nie ma

@@ -35,7 +35,7 @@ h1 {
 }
 
 .sl-paragraph {
-  color: rgba(0, 0, 0, 0.6);
+  color: var( --black1alfa);
   width: 244px;
   text-align: center;
   font-size: 14px;
@@ -49,6 +49,7 @@ h1 {
 }
 
 .image-empty-list {
+  background-color: var(--project-background);
   width: 265px;
   height: 198px;
   display: block;
