@@ -33,7 +33,7 @@
   padding: 40px 24px 40px 24px;
   position: relative;
 
-  background-color: var(--white);
+  background-color: var(--project-background);
   border: 2px solid var(--black);
 
   max-width: 335px;
@@ -113,12 +113,14 @@
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
 }
 .book-modal-button {
+  color: var(--black);
+  background-color: var(--black);
   max-width: 230px;
   align-self: center;
   padding: 14px 28px 14px 28px;
   margin-top: 44px;
 
-  background-color: var(--white);
+  background-color: var(--project-background);
   border: 2px solid var(--violet);
   border-radius: 40px;
 
