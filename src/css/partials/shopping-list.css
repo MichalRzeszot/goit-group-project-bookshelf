@@ -31,7 +31,7 @@ h1 {
 }
 
 .sl-paragraph {
-  color: rgba(0, 0, 0, 0.6);
+  color: var( --black1alfa);
   width: 244px;
   text-align: center;
   font-size: 14px;
